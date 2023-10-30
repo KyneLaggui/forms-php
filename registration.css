@@ -1,0 +1,129 @@
+@import url('https://fonts.cdnfonts.com/css/inter');
+
+:root {
+    --white: #F7EFE5;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('./Images/Login.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    border-radius: 30px;
+    font-size: 1.2rem;
+    padding: 80px 50px;
+}
+
+form .all-inputs .field-inputs{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 4px 0;
+    transition: all .2s ease;
+}
+
+.field-inputs label{
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.field-inputs input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+
+#input-group{
+    position: relative;
+    margin: 18px 0;
+    max-width: 100%;
+}
+#input-group label{
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #fff;
+    pointer-events: none;
+    padding: 0 5px;
+    transition: 0.5s ease;
+}
+
+#input-group input{
+    font-size: 1rem;
+    color: var(--white);
+    padding: 0 10px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 25px;
+    width: 100%;
+}
+
+#input-group input:focus~label,
+#input-group input:valid~label{
+    top: -14px;
+    left: 0;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.all-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.field-inputs input {
+    outline: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white);
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 0 15px;
+    height: 42px;
+}
