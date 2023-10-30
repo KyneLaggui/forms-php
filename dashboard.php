@@ -37,7 +37,13 @@
                         </div>
                     </div>
                     <div class="ticket-right-wrapper">
-                        <div class="ticket-number">№ 00001</div>
+                        <div class="ticket-number">
+                            <p>CMPE 40062</p>
+                            <p>№ 00001</p>
+                            <p>PUPCEA</p>
+                        </div>
+                        
+                        
                     </div>
                 </div>
                 <div class="ticket-bottom">
