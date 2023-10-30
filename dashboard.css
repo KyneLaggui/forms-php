@@ -55,44 +55,65 @@
   }
   
   .ticket-top {
-    padding: calc(2em) calc(7.75em) calc(2.4375em) calc(2.5em);
+    padding: 1em 7.75em 2.4375em 2.5em;
   }
-  
+
+  .ticket-title {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 2.5em;
+  }
+
+  .ticket-logo-img {
+    height: 3em;
+    width: 6em;
+    object-fit: contain;
+  }
+
+  .title-name { 
+
+  }
+
   .ticket-profile-details {
     display: flex;
     flex-direction: row;
-  }
-  
-  .ticket-event {
-    margin-top: 25px;
-    margin-left: -10px;
+    justify-content: flex-start;
+    gap: 1.5em;
   }
   
   .ticket-profile-img {
-    width: 7em;
-    height: 7em;
+    width: 6em;
+    height: 6em;
     border-radius: 50%;
     object-fit: cover;
   }
   
+  .ticket-profile-name { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
   .ticket-surname {
-    font-size: calc(32px * var(--size));
-    margin: 10px 0 5px 20px;
+    font-size: 2.7em;
     font-weight: 700;
   }
-  
-  .ticket-profile_username {
-    margin: 0 0 5px 20px;
-    color: #8a8f98;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+
+  .ticket-name {
+    font-size: 1.2em;
+    font-weight: 500;
   }
+
   
-  .ticket-profile_githubIcon img {
-    width: 18px;
-    height: 18px;
-  }
+  
+  
+  
   
   .ticket-visual_ticket-number-wrapper {
     position: absolute;

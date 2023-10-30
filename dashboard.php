@@ -10,6 +10,15 @@
     <div class="ticket-main">
         <div class="ticket-main-body" id="ticket">
             <div class="ticket-main-wrapper">
+                <div class="ticket-title">
+                    <img
+                        src="./Images/Logo.png"
+                        alt="LogoImg"
+                        class="ticket-logo-img"
+                        />
+                    <p class="title-name">Space in Computer Engineering Technology</p>
+
+                </div>
                 <div class="ticket-top">
                     <div class="ticket-profile-details">
                         <img
@@ -17,24 +26,18 @@
                         alt="AstronautImg"
                         class="ticket-profile-img"
                         />
-                        <div class="ticket-profile_text">
-                        <p class="ticket-surname">Buhain</p>
-                        <p class="ticket-profile_username">
-                            <span class="ticket-profile_githubIcon">
-                            <img src="./github.svg" alt="" />
-                            </span>
-                            madflows
-                        </p>
-                        <!-- Refactored html -->
+                        <div class="ticket-profile-name">
+                            <p class="ticket-surname">Buhain,</p>
+                            <p class="ticket-name">Joseph Jason S.</p>
+                            
+                            
                         </div>
-                    </div>
-                    <div class="ticket-event">
-                        <img src="./event-logos.png" />
                     </div>
                     <div class="ticket-visual_ticket-number-wrapper">
                         <div class="ticket-visual_ticket-number">№ 014747</div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
