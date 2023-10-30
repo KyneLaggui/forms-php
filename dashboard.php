@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
+
 </head>
 <body>
     <div class="ticket-main">
@@ -38,10 +40,20 @@
                     </div>
                     <div class="ticket-right-wrapper">
                         <div class="ticket-number">
-                            <p>CMPE 40062</p>
-                            <p>№ 00001</p>
-                            <p>PUPCEA</p>
-                        </div>
+                            <div class="numbers">
+                                <p>CMPE 40062</p>
+                                <p>№ 00001</p>
+                                <p>PUPCEA</p>
+                            </div>
+                            <div class="barcode-main">
+                                <div id='barcodeContainer' class='glowing-animation'>
+                                    <h1 id="barcode">
+                                        <span class = "animatedSpan"></span><span class = "animatedSpan">I</span><span class = "animatedSpan">N</span><span class = "animatedSpan">T</span><span class = "animatedSpan">E</span><span class = "animatedSpan">R</span><span class = "animatedSpan">S</span><span class = "animatedSpan">T</span></span><span class = "animatedSpan">E</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">A</span></span><span class = "animatedSpan">R</span>
+                                        
+                                        
+                                </div>
+                            </div>
+                            
                         
                         
                     </div>

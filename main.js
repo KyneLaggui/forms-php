@@ -18,32 +18,18 @@ window.addEventListener("mousemove", (e) => {
     `;
 });
 
-let barcodeSpans = $("#barcode").children();
+const barcodeSpans = document.querySelectorAll("#barcode .animatedSpan");
 
-function barcodeAnimation()
-{
-  barcodeSpans.each(function(i)
-  {
-    let span = $(this);
-    setTimeout(function()
-    {
-      // highlight each individual span with 200ms between each
-      span.toggleClass('highlighted');
-      // span.fadeToggle("slow");
-    }, 200*i);});
-  
-  barcodeSpans.each(function(i)
-  {
-    let span = $(this);
-    setTimeout(function()
-    {
-      // remove the highlighting from each span with 20ms between each
-      span.toggleClass('highlighted');
-      
-    }, 20*i);});
+function barcodeAnimation() {
+  barcodeSpans.forEach((span, i) => {
+    setTimeout(() => {
+      span.classList.add('highlighted');
+    }, 200 * i);
+    setTimeout(() => {
+      span.classList.remove('highlighted');
+    }, 20 * i);
+  });
 }
 
-$(document).ready(function()
-{
-  setInterval(barcodeAnimation, 4000);
-});
+barcodeAnimation(); // Initial animation
+setInterval(barcodeAnimation, 4000); // Repeating animation
