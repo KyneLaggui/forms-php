@@ -29,12 +29,34 @@
                         <div class="ticket-profile-name">
                             <p class="ticket-surname">Buhain,</p>
                             <p class="ticket-name">Joseph Jason S.</p>
-                            
-                            
+                        </div>
+                        <div class="ticket-personal-information">
+                            <p class="PI-Birthdate">Birthdate | 07/16/2004</p>
+                            <p class="PI-Age">Age | 19</p>
+                            <p class="PI-Gender">Gender | Male</p>
                         </div>
                     </div>
-                    <div class="ticket-visual_ticket-number-wrapper">
-                        <div class="ticket-visual_ticket-number">№ 014747</div>
+                    <div class="ticket-right-wrapper">
+                        <div class="ticket-number">№ 00001</div>
+                    </div>
+                </div>
+                <div class="ticket-bottom">
+                    <div class="information">
+                        <h1>Contact</h1>
+                        <div class="group-information">
+                            <p class="Email">Email Address |<br> mordecool@gmail.com</p>
+                            <p class="Contact-Number">Contact Number | <br> 0912-345-6789</p>
+                            <p class="Telephone-Number">Telephone Number | <br> (044)760-5083</p>
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h1>Location</h1>
+                        <div class="group-information">
+                            <p class="Region">Region |<br> NCR</p>
+                            <p class="Province/City">Province/City |<br> Manila</p>
+                            <p class="Municipality">Municipality |<br> Sta Mesa</p>
+                            <p class="Barangay">Barangay |<br> 630</p>
+                        </div>
                     </div>
                 </div>
                 
