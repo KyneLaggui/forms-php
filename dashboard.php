@@ -38,25 +38,7 @@
                             <p class="PI-Gender"><span class="blue-text">GENDER</span> Male</p>
                         </div>
                     </div>
-                    <div class="ticket-right-wrapper">
-                        <div class="ticket-number">
-                            <div class="numbers">
-                                <p>CMPE 40062</p>
-                                <p>№ 00001</p>
-                                <p>PUPCEA</p>
-                            </div>
-                            <div class="barcode-main">
-                                <div id='barcodeContainer' class='glowing-animation'>
-                                    <h1 id="barcode">
-                                        <span class = "animatedSpan"></span><span class = "animatedSpan">I</span><span class = "animatedSpan">N</span><span class = "animatedSpan">T</span><span class = "animatedSpan">E</span><span class = "animatedSpan">R</span><span class = "animatedSpan">S</span><span class = "animatedSpan">T</span></span><span class = "animatedSpan">E</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">A</span></span><span class = "animatedSpan">R</span>
-                                        
-                                        
-                                </div>
-                            </div>
-                            
-                        
-                        
-                    </div>
+                    
                 </div>
                 <div class="ticket-bottom">
                     <div class="information">
@@ -76,6 +58,22 @@
                             <p class="Barangay"><span class="blue-text">BARANGAY</span><br> 630</p>
                         </div>
                     </div>
+                </div>
+                <div class="ticket-right-wrapper">
+                    <div class="ticket-number">
+                        <div class="numbers">
+                            <p>CMPE 40062</p>
+                            <p>№ 00001</p>
+                            <p>PUPCEA</p>
+                        </div>
+                        <div class="barcode-main">
+                            <div id='barcodeContainer' class='glowing-animation'>
+                                <h1 id="barcode">
+                                    <span class = "animatedSpan"></span><span class = "animatedSpan">I</span><span class = "animatedSpan">N</span><span class = "animatedSpan">T</span><span class = "animatedSpan">E</span><span class = "animatedSpan">R</span><span class = "animatedSpan">S</span><span class = "animatedSpan">T</span></span><span class = "animatedSpan">E</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">A</span></span><span class = "animatedSpan">R</span>
+                                    
+                                    
+                            </div>
+                        </div>
                 </div>
                 
             </div>
