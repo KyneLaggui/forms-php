@@ -25,20 +25,23 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    margin: 0px auto;
     width: 100%;
-    max-width: 450px;
+    max-width: 1200px;
     padding: 20px;
 }
 
-.login-box {
+
+.registration-box {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -51,14 +54,29 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.39);
     border-radius: 30px;
     font-size: 1.2rem;
-    padding: 80px 50px;
+    padding: 50px 150px;
+}
+
+.back-btn-container {
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    top: 20px;
+    left: 20px;
+    gap: 10px;
+}
+
+#back-btn {
+    font-size: 3rem;
+    color: var(--white);
+    cursor: pointer;
 }
 
 form .all-inputs .field-inputs{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: column;
-    margin: 4px 0;
+    margin: 18px 0;
     transition: all .2s ease;
 }
 
@@ -72,12 +90,14 @@ form .all-inputs .field-inputs{
     box-shadow: 0 3px 6px rgba(0,0,0,0.13);
 }
 
-#input-group{
+#input-group, 
+.field-inputs {
     position: relative;
     margin: 18px 0;
     max-width: 100%;
 }
-#input-group label{
+#input-group label,
+.field-inputs label {
     position: absolute;
     top: 50%;
     left: 18px;
@@ -92,21 +112,24 @@ form .all-inputs .field-inputs{
 #input-group input{
     font-size: 1rem;
     color: var(--white);
-    padding: 0 10px;
+    padding: 0 20px;
     background: transparent;
     border: 1.2px solid #fff;
     outline: none;
     border-radius: 25px;
-    width: 100%;
+    max-width: 100%;
 }
 
 #input-group input:focus~label,
-#input-group input:valid~label{
+#input-group input:valid~label,
+.field-inputs select~label{
+    position: absolute;
     top: -14px;
     left: 0;
     font-size: 1rem;
     color: var(--white);
 }
+
 
 .all-inputs {
     width: 100%;
@@ -114,7 +137,7 @@ form .all-inputs .field-inputs{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .field-inputs input {
@@ -126,4 +149,131 @@ form .all-inputs .field-inputs{
     border: 1px solid blue;
     padding: 0 15px;
     height: 42px;
+}
+
+.full-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.row {
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.first-row-inputs {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+}
+
+.first-row.row {
+    gap: 0px;
+}
+
+.first-row div:first-child {
+    margin-right: 20px;
+}
+
+.first-row-inputs #input-group {
+    margin: 10px 0; 
+}
+
+/* Input box responsiveness */
+form .first-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .second-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .third-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .fourth-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .fifth-row .field-inputs{
+    flex: 1 1 0;
+}
+/* End of input box responsiveness */
+
+
+
+/* General sizes of input boxes */
+form .all-inputs .field-inputs.short-inputs {
+    width: 100px;
+    flex-grow: 0;
+}
+
+form .all-inputs .field-inputs.medium-inputs {
+    flex-grow: 0.5;
+}
+/* form .all-inputs .field-inputs.medium-inputs {
+    
+} */
+/* End of general sizes */
+
+.field-inputs input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+    color: white !important;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+@media only screen and (max-width: 800px) {
+    .registration-box {
+        padding: 50px 70px;
+    }
+
+    form .all-inputs .field-inputs.medium-inputs {
+        flex-grow: 1;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .row  {
+        gap: 10px;
+    }
+
+    #input-group, .field-inputs {
+        margin: 10px 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .registration-box {
+        padding: 50px 50px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    form .all-inputs .field-inputs.short-inputs {
+        flex-grow: 1;
+    }
 }

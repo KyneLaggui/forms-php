@@ -25,6 +25,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     justify-content: center;
