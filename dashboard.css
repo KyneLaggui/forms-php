@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/inter');
-
+@import url('https://fonts.cdnfonts.com/css/fira-code-2');
+@import url('https://fonts.cdnfonts.com/css/space-mono');
 
   
   body {
@@ -64,6 +65,11 @@
     gap: 0.5em;
     padding-top: 1em;
     padding-left: 2em;
+    
+  }
+
+  .ticket-title p {
+    font-family: 'Space Mono', sans-serif;
   }
 
   .ticket-logo-img {
@@ -78,6 +84,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: 1.5em;
+    
   }
   
   .ticket-profile-img {
@@ -96,13 +103,13 @@
   }
 
   .ticket-surname {
-    font-size: 2.7em;
+    font-size: 3em;
     font-weight: 700;
   }
 
   .ticket-name {
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 1.3em;
+    font-weight: 200;
   }
 
   .ticket-personal-information {
@@ -112,7 +119,13 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 0.3em;
-    font-size: 1em;
+    font-size: 0.9em;
+    
+   
+  }
+
+  .ticket-personal-information p{
+    font-family: 'Space Mono', sans-serif !important;
   }
 
   
@@ -133,6 +146,7 @@
   }
 
   .ticket-bottom h1 { 
+
     font-size: 1.3em;
     margin-bottom: 0.5em;
   }
@@ -145,8 +159,10 @@
     gap: 4em;
   }
 
+
   .ticket-bottom p { 
     font-size: 0.8em;
+    font-family: 'Space Mono', sans-serif !important;
   }
   
   .ticket-right-wrapper {
@@ -161,6 +177,16 @@
     align-items: center;
     gap: 4.5em;
 
+  }
+
+  .blue-text{
+    color: aliceblue;
+    text-shadow: 1px 1px 25px aqua;
+    font-weight: 600;
+  }
+
+  .numbers p {
+    font-family: 'Space Mono', sans-serif !important;
   }
   
   .ticket-number {
@@ -220,3 +246,5 @@
     /* text-shadow: 1px 1px 35px aqua; */
     animation: glow 2s infinite alternate;
   }
+
+  

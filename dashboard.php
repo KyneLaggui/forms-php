@@ -18,13 +18,13 @@
                         alt="LogoImg"
                         class="ticket-logo-img"
                         />
-                    <p class="title-name">Space in Computer Engineering Technology</p>
+                    <p class="title-name">SPACE IN COMPUTER ENGINEERING TECHNOLOGY</p>
 
                 </div>
                 <div class="ticket-top">
                     <div class="ticket-profile-details">
                         <img
-                        src="./Images/Profile-Picture.jpg"
+                        src="./Images/try.png"
                         alt="AstronautImg"
                         class="ticket-profile-img"
                         />
@@ -33,9 +33,9 @@
                             <p class="ticket-name">Joseph Jason S.</p>
                         </div>
                         <div class="ticket-personal-information">
-                            <p class="PI-Birthdate">Birthdate | 07/16/2004</p>
-                            <p class="PI-Age">Age | 19</p>
-                            <p class="PI-Gender">Gender | Male</p>
+                            <p class="PI-Birthdate"><span class="blue-text">BIRTHDATE</span> 07/16/2004</p>
+                            <p class="PI-Age"><span class="blue-text">AGE</span> 19</p>
+                            <p class="PI-Gender"><span class="blue-text">GENDER</span> Male</p>
                         </div>
                     </div>
                     <div class="ticket-right-wrapper">
@@ -60,20 +60,20 @@
                 </div>
                 <div class="ticket-bottom">
                     <div class="information">
-                        <h1>Contact</h1>
+                        <h1>CONTACT</h1>
                         <div class="group-information">
-                            <p class="Email">Email Address |<br> mordecool@gmail.com</p>
-                            <p class="Contact-Number">Contact Number | <br> 0912-345-6789</p>
-                            <p class="Telephone-Number">Telephone Number | <br> (044)760-5083</p>
+                            <p class="Email"><span class="blue-text">EMAIL ADDRESS</span><br> mordecool@gmail.com</p>
+                            <p class="Contact-Number"><span class="blue-text">MOBILE NUMBER</span><br> 0912-345-6789</p>
+                            <p class="Telephone-Number"><span class="blue-text">TELEPHONE NUMBER</span><br> (044)760-5083</p>
                         </div>
                     </div>
                     <div class="information">
-                        <h1>Location</h1>
+                        <h1>LOCATION</h1>
                         <div class="group-information">
-                            <p class="Region">Region |<br> NCR</p>
-                            <p class="Province/City">Province/City |<br> Manila</p>
-                            <p class="Municipality">Municipality |<br> Sta Mesa</p>
-                            <p class="Barangay">Barangay |<br> 630</p>
+                            <p class="Region"><span class="blue-text">REGION</span><br> NCR</p>
+                            <p class="Province/City"><span class="blue-text">PROVINCE/CITY</span><br> Manila</p>
+                            <p class="Municipality"><span class="blue-text">MUNICIPALITY</span><br> Sta Mesa</p>
+                            <p class="Barangay"><span class="blue-text">BARANGAY</span><br> 630</p>
                         </div>
                     </div>
                 </div>
