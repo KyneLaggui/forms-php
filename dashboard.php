@@ -4,40 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
+
 </head>
 <body>
-    <div class="ticket-visual_visual" id="ticket">
-        <div class="left"></div>
-        <div class="right"></div>
-        <div class="ticket-visual-wrapper">
-            <div class="ticket-visual_profile">
-            <div class="ticket-profile_profile">
-                <img
-                src="https://github.com/madflows.png"
-                alt="madflows"
-                class="ticket-profile_image"
-                />
-                <div class="ticket-profile_text">
-                <p class="ticket-profile_name">Folarin Lawal</p>
-                <p class="ticket-profile_username">
-                    <span class="ticket-profile_githubIcon">
-                    <img src="./github.svg" alt="" />
-                    </span>
-                    madflows
-                </p>
-                <!-- Refactored html -->
-                </div>
-            </div>
-            <div class="ticket-event">
-            <img src="./event-logos.png" />
-            </div>
-            <div class="ticket-visual_ticket-number-wrapper">
-            <div class="ticket-visual_ticket-number">№ 014747</div>
-            </div>
-        </div>
-        </div>
+    <div class="ticket-main">
+        <div class="ticket-main-body" id="ticket">
+            <div class="ticket-main-wrapper">
+                <div class="ticket-title">
+                    <img
+                        src="./Images/Logo.png"
+                        alt="LogoImg"
+                        class="ticket-logo-img"
+                        />
+                    <p class="title-name">SPACE IN COMPUTER ENGINEERING TECHNOLOGY</p>
 
-        <script src="./script.js"></script>
+                </div>
+                <div class="ticket-top">
+                    <div class="ticket-profile-details">
+                        <img
+                        src="./Images/try.png"
+                        alt="AstronautImg"
+                        class="ticket-profile-img"
+                        />
+                        <div class="ticket-profile-name">
+                            <p class="ticket-surname">Buhain,</p>
+                            <p class="ticket-name">Joseph Jason S.</p>
+                        </div>
+                        <div class="ticket-personal-information">
+                            <p class="PI-Birthdate"><span class="blue-text">BIRTHDATE</span> 07/16/2004</p>
+                            <p class="PI-Age"><span class="blue-text">AGE</span> 19</p>
+                            <p class="PI-Gender"><span class="blue-text">GENDER</span> Male</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="ticket-bottom">
+                    <div class="information">
+                        <h1>CONTACT</h1>
+                        <div class="group-information">
+                            <p class="Email"><span class="blue-text">EMAIL ADDRESS</span><br> mordecool@gmail.com</p>
+                            <p class="Contact-Number"><span class="blue-text">MOBILE NUMBER</span><br> 0912-345-6789</p>
+                            <p class="Telephone-Number"><span class="blue-text">TELEPHONE NUMBER</span><br> (044)760-5083</p>
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h1>LOCATION</h1>
+                        <div class="group-information">
+                            <p class="Region"><span class="blue-text">REGION</span><br> NCR</p>
+                            <p class="Province/City"><span class="blue-text">PROVINCE/CITY</span><br> Manila</p>
+                            <p class="Municipality"><span class="blue-text">MUNICIPALITY</span><br> Sta Mesa</p>
+                            <p class="Barangay"><span class="blue-text">BARANGAY</span><br> 630</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-right-wrapper">
+                    <div class="ticket-number">
+                        <div class="numbers">
+                            <p>CMPE 40062</p>
+                            <p>№ 00001</p>
+                            <p>PUPCEA</p>
+                        </div>
+                        <div class="barcode-main">
+                            <div id='barcodeContainer' class='glowing-animation'>
+                                <h1 id="barcode">
+                                    <span class = "animatedSpan"></span><span class = "animatedSpan">I</span><span class = "animatedSpan">N</span><span class = "animatedSpan">T</span><span class = "animatedSpan">E</span><span class = "animatedSpan">R</span><span class = "animatedSpan">S</span><span class = "animatedSpan">T</span></span><span class = "animatedSpan">E</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">L</span></span><span class = "animatedSpan">A</span></span><span class = "animatedSpan">R</span>
+                                    
+                                    
+                            </div>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./main.js"></script>
+        
 </body>
 </html>
