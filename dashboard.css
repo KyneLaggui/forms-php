@@ -22,6 +22,7 @@
 
 
   .ticket-main {
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +55,7 @@
   }
   
   .ticket-top {
-    padding: 2em;
+    padding: 2em 11em 2em 2em;
   }
 
   .ticket-title {
@@ -65,6 +66,7 @@
     gap: 0.5em;
     padding-top: 1em;
     padding-left: 2em;
+    position: relative
     
   }
 
@@ -78,12 +80,17 @@
     object-fit: contain;
   }
 
+  .image-name {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+  }
 
   .ticket-profile-details {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    gap: 1.5em;
+    justify-content: space-between;
+
     
   }
   
@@ -113,13 +120,12 @@
   }
 
   .ticket-personal-information {
-    margin-left: 3em;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     gap: 0.3em;
-    font-size: 0.9em;
+    font-size: 0.8em;
     
    
   }
@@ -158,6 +164,7 @@
     flex-direction: row;
     gap: 4em;
     flex-wrap: wrap;
+    text-align: center;
   }
 
   .ticket-bottom p { 
@@ -256,9 +263,7 @@
       justify-content: center;
     }
 
-    .ticket-profile-details {
-      justify-content: center;
-    }
+   
 
     .ticket-main-body {
       width: 100%;
@@ -288,8 +293,75 @@
       transform: rotate(360deg);
       flex-direction: column-reverse;
       position: relative;
-      
+    }
+
+    .ticket-top {
+      padding: 2em;
       
     }
 
+  }
+
+  @media only screen and (max-width: 740px) {
+
+    .ticket-main-body {
+      margin: 3em;
+    }
+
+    .group-information {
+      gap: 2em;
+    }
+  }
+
+  @media only screen and (max-width: 668px) {
+
+    .ticket-title {
+      flex-direction: column;
+      padding: 1em;
+      
+    }
+
+  
+
+  }
+  
+  @media only screen and (max-width: 627px) {
+
+    .ticket-bottom {
+      padding: 1em;
+    }
+
+  }
+
+  @media only screen and (max-width: 550px) {
+
+    .ticket-main-body {
+      margin: 1em;
+    }
+
+    .ticket-profile-details {
+      flex-wrap: wrap;
+    }
+
+    .ticket-personal-information {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      width: 100%;
+      margin: 1em 0 0 0;
+      
+    }
+
+    .next-line {
+      display: block;
+    }
+
+  }
+
+  @media only screen and (max-width: 521px) {
+
+    .ticket-surname {
+      font-size: 2.5em;
+    }
   }

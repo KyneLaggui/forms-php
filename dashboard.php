@@ -23,19 +23,21 @@
                 </div>
                 <div class="ticket-top">
                     <div class="ticket-profile-details">
-                        <img
-                        src="./Images/try.png"
-                        alt="AstronautImg"
-                        class="ticket-profile-img"
-                        />
-                        <div class="ticket-profile-name">
-                            <p class="ticket-surname">Buhain,</p>
-                            <p class="ticket-name">Joseph Jason S.</p>
+                        <div class="image-name">
+                            <img
+                            src="./Images/try.png"
+                            alt="AstronautImg"
+                            class="ticket-profile-img"
+                            />
+                            <div class="ticket-profile-name">
+                                <p class="ticket-surname">Delos Reyes,</p>
+                                <p class="ticket-name">Joseph Jason S.</p>
+                            </div>
                         </div>
                         <div class="ticket-personal-information">
-                            <p class="PI-Birthdate"><span class="blue-text">BIRTHDATE</span> 07/16/2004</p>
-                            <p class="PI-Age"><span class="blue-text">AGE</span> 19</p>
-                            <p class="PI-Gender"><span class="blue-text">GENDER</span> Male</p>
+                            <p class="PI-Birthdate"><span class="blue-text next-line">BIRTHDATE</span> 07/16/2004</p>
+                            <p class="PI-Age"><span class="blue-text next-line">AGE</span> 19</p>
+                            <p class="PI-Gender"><span class="blue-text next-line">GENDER</span> Male</p>
                         </div>
                     </div>
                     
