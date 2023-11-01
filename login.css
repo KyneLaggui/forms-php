@@ -138,32 +138,138 @@ form .all-inputs .field-inputs{
 
 #space {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.7rem;
 }
 
 #T {
-    color: #C3ACD0; 
-    font-size: 1.4rem;
+    color: aqua;
+    text-shadow: 1px 1px 25px aliceblue; 
+    font-size: 1.7rem;
 }
 
 #login-btn {
-    width: 100%;
+    /* width: 100%;
     border-radius: 30px;
     padding: 0 10px;
     font-size: 1.2rem;
     height: 42px;
     background: #7743DB;
     color: var(--white);
+    border: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    background: transparent;
     border: none;
+
 }
 
+
+
+.login-button-main {
+    display: flex;
+    align-items: center;
+    padding: 0em 2em;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    background: #31beea;
+    transition: 1s;
+    border-radius: 25px;
+    box-shadow: 0 0 0.2em 0 #31beea;
+  }
+  
+.login-button-main:hover, .login-button-main:focus {
+    transition: 0.5s;
+    -webkit-animation: login-button-main 1s;
+    animation: login-button-main 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 #31beea;
+}
+  
+.login-button-main .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+}
+  
+.login-button-main:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+}
+  
+.icon-arrow {
+    width: 1rem;
+    margin-left: 15px;
+    position: relative;
+    top: 6%;
+}
+    
+#arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+  
+#arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+  
+.login-button-main:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+}
+  
+.login-button-main:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+  
+.login-button-main:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+  
+  /* SVG animations */
+  @keyframes color_anim {
+    0% {
+      fill: white;
+    }
+  
+    50% {
+      fill: #31beea;
+    }
+  
+    100% {
+      fill: white;
+    }
+  }
+  
+  @-webkit-keyframes login-button-main {
+    0% {
+      outline: 0.2em solid #C2D9FF;
+      outline-offset: 0;
+    }
+  }
+  
+  @keyframes login-button-main {
+    0% {
+      outline: 0.2em solid #C2D9FF;
+      outline-offset: 0;
+    }
+  }
+
 #sign-up {
-    color: #C3ACD0; 
+    color: aqua;
+    text-shadow: 1px 1px 25px aliceblue;
     cursor: pointer;
 }
 
 .no-account, .welcome {
     text-align: center;
+    font-size: 1em;
 }
 
 @media only screen and (max-width: 500px) {
