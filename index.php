@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +13,13 @@
 </head>
 <body>
     <div class="container">
-        <form action="./login-inc.php" method="post" class="login-box">
+        <form action="./includes/login.inc.php" method="post" class="login-box">
             <div class="all-inputs">
                 <p class="welcome">Welcome to&nbsp;<span id="space">Space</span><span id="T">T</span></p>
                 <div class="input-boxes">
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="username" required maxlength = "30" >
-                        <label>Username</label>
+                        <input type="text" name="email" required maxlength = "30" >
+                        <label>Email</label>
                     </div>
                     <div class="field-inputs password-field" id="input-group">  
                         <input type="text" name="password" required maxlength = "30" >
@@ -27,6 +31,6 @@
             </div>
         </form>
     </div>
-    <script src="./js/main.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
