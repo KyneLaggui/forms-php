@@ -146,6 +146,10 @@ form .all-inputs .field-inputs{
     font-size: 1.4rem;
 }
 
+.fa-solid.fa-circle-exclamation {
+    color:#e93f3f;
+}
+
 #login-btn {
     width: 100%;
     border-radius: 30px;

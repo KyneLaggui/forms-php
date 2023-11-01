@@ -2,6 +2,12 @@
     session_start();
 ?>
 
+<?php
+    if (isset($_SESSION['email'])) {
+        header('location: ./dashboard.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,15 +74,15 @@
                 </div>
                 <div class="second-row row">
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="fname" required  required>
+                        <input type="text" name="fname" required >
                         <label>First Name</label>
                     </div>
-                    <div class="field-inputs password-field" id="input-group">  
-                        <input type="text" name="lname" >
+                    <div class="field-inputs" id="input-group">  
+                        <input type="text" name="mname" required >
                         <label>Middle Name</label>
                     </div>
-                    <div class="field-inputs password-field" id="input-group">  
-                        <input type="text" name="mname" required>
+                    <div class="field-inputs" id="input-group">  
+                        <input type="text" name="lname" required>
                         <label>Last Name</label>
                     </div>
                 </div>
