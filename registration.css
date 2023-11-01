@@ -234,6 +234,10 @@ i.fa-solid.fa-circle-check {
     color: white;
 }
 
+.fa-solid.fa-circle-exclamation {
+    color:#e93f3f;
+}
+
 /* Input box responsiveness */
 form .first-row .field-inputs{
     flex: 1 1 0;
@@ -331,6 +335,10 @@ input[type=date]:focus::-webkit-datetime-edit {
 
     #input-group, .field-inputs {
         margin: 10px 0px;
+    }
+
+    .input-errors {
+        margin: 20px 0;
     }
 }
 

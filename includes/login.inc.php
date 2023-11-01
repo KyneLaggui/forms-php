@@ -22,11 +22,26 @@
         mysqli_stmt_close($stmt);
     }
 
+    function emptyInputLogin($email, $pwd) {
+        $result;
+        if (empty($email) || empty($pwd)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
     function loginUser($conn, $email, $pwd) {
         $emailExists = emailExists($conn, $email);
 
+        if (emptyInputLogin($email, $pwd) == true) {
+            header('location: ../index.php?error=emptyinput');
+            exit();
+        }
+    
         if ($emailExists === false) {
-            header('location: ../login.php?error=wronglogin');
+            header('location: ../index.php?error=wronglogin');
             exit();
         }
 
@@ -34,7 +49,7 @@
         $checkPwd = password_verify($pwd, $pwdHashed);
 
         if ($checkPwd === false) {
-            header('location: ../login.php?error=wronglogin');
+            header('location: ../index.php?error=wronglogin');
             exit();
         }
 

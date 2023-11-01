@@ -2,6 +2,12 @@
     session_start();
 ?>
 
+<?php
+    if (isset($_SESSION['email'])) {
+        header('location: ./dashboard.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +32,18 @@
                         <label>Password</label>
                     </div>
                 </div>
+
+                <button type="submit" id="login-btn">Login</button>
+                <?php 
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error'] == 'emptyinput') {
+                            echo "<p><i class='fa-solid fa-circle-exclamation'></i>&nbsp;Fill in all fields.</p>";
+                        }
+                        else if ($_GET['error'] == 'wronglogin') {
+                            echo "<p><i class='fa-solid fa-circle-exclamation'></i>&nbsp;Wrong login credentials.</p>";
+                        }
+                    }
+                ?>
                 <button type="submit" id="login-btn">
                     <a class="login-button-main" href="#">
                         <span class="btn-title">Launch</span>
@@ -44,6 +62,7 @@
             </div>
         </form>
     </div>
+    <script src="https://kit.fontawesome.com/ee74f8cc5e.js" crossorigin="anonymous"></script>
     <script src="./js/login.js"></script>
 </body>
 </html>

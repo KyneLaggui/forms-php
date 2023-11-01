@@ -232,6 +232,10 @@
     gap: 1.5em;
   }
   
+  .logout-button,
+  .profile-button {
+    cursor: pointer;
+  }
   /* Barcode */
   
   
