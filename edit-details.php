@@ -21,7 +21,7 @@
     <div class="container">
         <form action="./includes/registration.inc.php" class="registration-box" id="registration-form" method="post">
             <div class="back-btn-container">
-                <a href="index.php">
+                <a href="dashboard.php">
                     <i class='fas fa-arrow-circle-left' id="back-btn"></i>                
                 </a>
                 Go Back

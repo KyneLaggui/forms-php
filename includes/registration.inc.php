@@ -33,9 +33,37 @@
             $dBName = 'spacet';
             
             $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-            
+
             if (!$conn) {
                 die("Connection failed " . mysqli_connect_error());             
+            }
+                        
+            function emailExists($conn, $email) {
+                $sql = "SELECT * FROM users WHERE email = ?;";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    header("location: ../signup.php?error=stmtfailed");
+                    exit();
+                }
+
+                mysqli_stmt_bind_param($stmt, "s", $email);
+                mysqli_stmt_execute($stmt);
+
+                $resultData = mysqli_stmt_get_result($stmt);
+
+                if ($row = mysqli_fetch_assoc($resultData)) {
+                    return $row;
+                } else {
+                    $result = false;
+                    return $result;
+                }
+
+                mysqli_stmt_close($stmt);
+            }
+
+            if (emailExists($conn, $email)) {
+                header("location: ../registration.php?error=emailExists");
+                exit();
             }
 
             $sql = "INSERT INTO users(username, user_password, first_name, middle_name,
