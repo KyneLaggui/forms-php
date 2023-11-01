@@ -122,12 +122,17 @@ form .all-inputs .field-inputs{
 
 #input-group input:focus~label,
 #input-group input:valid~label,
-.field-inputs select~label{
+.field-inputs select~label,
+.active-age {
     position: absolute;
     top: -14px;
     left: 0;
     font-size: 1rem;
     color: var(--white);
+}
+
+#other-gender {
+    display: none;
 }
 
 
@@ -160,7 +165,7 @@ form .all-inputs .field-inputs{
 .row {
     width: 100%;
     display: flex; 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
@@ -182,6 +187,47 @@ form .all-inputs .field-inputs{
 
 .first-row-inputs #input-group {
     margin: 10px 0; 
+}
+
+.input-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    height: 234px;
+    max-height: 100%;
+    overflow-y: scroll;
+    padding: 18px 10px;
+}
+
+.input-error {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 250px;
+}
+
+i.fa-solid.fa-circle-exclamation,
+i.fa-solid.fa-circle-check {
+    margin-right: 10px;
+}
+
+i.fa-solid.fa-circle-check {
+    display: none;
+}
+
+.save-btn {
+    width: 200px;
+    background: #0FC2FA;
+    border: none;
+    border-radius: 25px;
+    height: 42px;
+    margin: 8px 0 8px auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: white;
 }
 
 /* Input box responsiveness */
@@ -246,9 +292,27 @@ input[type=date]:focus::-webkit-datetime-edit {
     filter: invert(1);
 }
 
+@media only screen and (max-width: 1120px) {
+    .first-row-inputs {
+        order: 3
+    }
+
+    .input-errors {
+        order: 2;
+    }
+
+    .input-error {
+        max-width: 400px;
+    }
+
+    .registration-box {
+        padding: 80px 150px;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     .registration-box {
-        padding: 50px 70px;
+        padding: 100px 70px;
     }
 
     form .all-inputs .field-inputs.medium-inputs {
@@ -268,7 +332,7 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 @media only screen and (max-width: 600px) {
     .registration-box {
-        padding: 50px 50px;
+        padding: 120px 50px;
     }
 }
 
