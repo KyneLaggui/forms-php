@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,33 @@
 
 </head>
 <body>
+    <?php 
+        if (!isset($_SESSION['email'])) {
+            header('location: ./index.php');
+        }
+    ?>
+    <?php
+        $serverName = 'localhost:3306';
+        $dBUsername = 'root';
+        $dBPassword = '';
+        $dBName = 'spacet';
+
+        $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+
+        $sql = "SELECT * FROM users WHERE email = ?;";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: index.php?error=queryerrror");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "s", $_SESSION['email']);
+        mysqli_stmt_execute($stmt);
+
+        $resultData = mysqli_stmt_get_result($stmt);
+
+        $row = mysqli_fetch_assoc($resultData)
+    ?>
     <div class="ticket-main">
         <div class="ticket-main-body" id="ticket">
             <div class="ticket-main-wrapper">
@@ -30,7 +61,7 @@
                             class="ticket-profile-img"
                             />
                             <div class="ticket-profile-name">
-                                <p class="ticket-surname">Delos Reyes,</p>
+                                <p class="ticket-surname"><?= $row['last_name']?>,</p>
                                 <p class="ticket-name">Joseph Jason S.</p>
                             </div>
                         </div>
@@ -46,7 +77,7 @@
                     <div class="information">
                         <h1>CONTACT</h1>
                         <div class="group-information">
-                            <p class="Email"><span class="blue-text">EMAIL ADDRESS</span><br> mordecool@gmail.com</p>
+                            <p class="Email"><span class="blue-text">EMAIL ADDRESS</span><br><?php echo $_SESSION['email'] ?></p>
                             <p class="Contact-Number"><span class="blue-text">MOBILE NUMBER</span><br> 0912-345-6789</p>
                             <p class="Telephone-Number"><span class="blue-text">TELEPHONE NUMBER</span><br> (044)760-5083</p>
                         </div>
