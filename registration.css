@@ -1,0 +1,343 @@
+@import url('https://fonts.cdnfonts.com/css/inter');
+
+:root {
+    --white: #F7EFE5;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('./Images/Login.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+
+.registration-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    border-radius: 30px;
+    font-size: 1.2rem;
+    padding: 50px 150px;
+}
+
+.back-btn-container {
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    top: 20px;
+    left: 20px;
+    gap: 10px;
+}
+
+#back-btn {
+    font-size: 3rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+form .all-inputs .field-inputs{
+    display: flex;
+    /* width: 100%; */
+    flex-direction: column;
+    margin: 18px 0;
+    transition: all .2s ease;
+}
+
+.field-inputs label{
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.field-inputs input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+
+#input-group, 
+.field-inputs {
+    position: relative;
+    margin: 18px 0;
+    max-width: 100%;
+}
+#input-group label,
+.field-inputs label {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #fff;
+    pointer-events: none;
+    padding: 0 5px;
+    transition: 0.5s ease;
+}
+
+#input-group input{
+    font-size: 1rem;
+    color: var(--white);
+    padding: 0 20px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 25px;
+    max-width: 100%;
+}
+
+#input-group input:focus~label,
+#input-group input:valid~label,
+.field-inputs select~label,
+.active-age {
+    position: absolute;
+    top: -14px;
+    left: 0;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+#other-gender {
+    display: none;
+}
+
+
+.all-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.field-inputs input {
+    outline: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white);
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 0 15px;
+    height: 42px;
+}
+
+.full-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.row {
+    width: 100%;
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.first-row-inputs {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+}
+
+.first-row.row {
+    gap: 0px;
+}
+
+.first-row div:first-child {
+    margin-right: 20px;
+}
+
+.first-row-inputs #input-group {
+    margin: 10px 0; 
+}
+
+.input-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    height: 234px;
+    max-height: 100%;
+    overflow-y: scroll;
+    padding: 18px 10px;
+}
+
+.input-error {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 250px;
+}
+
+i.fa-solid.fa-circle-exclamation,
+i.fa-solid.fa-circle-check {
+    margin-right: 10px;
+}
+
+i.fa-solid.fa-circle-check {
+    display: none;
+}
+
+.save-btn {
+    width: 200px;
+    background: #0FC2FA;
+    border: none;
+    border-radius: 25px;
+    height: 42px;
+    margin: 8px 0 8px auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Input box responsiveness */
+form .first-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .second-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .third-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .fourth-row .field-inputs{
+    flex: 1 1 0;
+}
+
+form .fifth-row .field-inputs{
+    flex: 1 1 0;
+}
+/* End of input box responsiveness */
+
+
+
+/* General sizes of input boxes */
+form .all-inputs .field-inputs.short-inputs {
+    width: 100px;
+    flex-grow: 0;
+}
+
+form .all-inputs .field-inputs.medium-inputs {
+    flex-grow: 0.5;
+}
+/* form .all-inputs .field-inputs.medium-inputs {
+    
+} */
+/* End of general sizes */
+
+.field-inputs input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+    color: white !important;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+@media only screen and (max-width: 1120px) {
+    .first-row-inputs {
+        order: 3
+    }
+
+    .input-errors {
+        order: 2;
+    }
+
+    .input-error {
+        max-width: 400px;
+    }
+
+    .registration-box {
+        padding: 80px 150px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .registration-box {
+        padding: 100px 70px;
+    }
+
+    form .all-inputs .field-inputs.medium-inputs {
+        flex-grow: 1;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .row  {
+        gap: 10px;
+    }
+
+    #input-group, .field-inputs {
+        margin: 10px 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .registration-box {
+        padding: 120px 50px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    form .all-inputs .field-inputs.short-inputs {
+        flex-grow: 1;
+    }
+}
