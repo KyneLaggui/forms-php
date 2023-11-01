@@ -25,9 +25,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 2% 20% 2% 20%;
+    margin: 2% 20% 1% 20%;
     gap: 1em;
     text-align: center;
+    height: 7em;
   }
 
   .welcome-statement h1 {
@@ -39,8 +40,10 @@
   .welcome-statement .username {
     font-size: 1.5em;
     font-weight: 700;
+    color: aliceblue;
+    text-shadow: 1px 1px 25px aqua;
   }
-
+  
 
   .ticket-main {
     position: relative;
@@ -279,7 +282,7 @@
     align-items: center;
     gap: 1em;
     text-decoration: none;
-    margin: 1em 1em 3em 1em;
+    margin: 1em;
     
   }
 

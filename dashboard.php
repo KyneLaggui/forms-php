@@ -41,8 +41,8 @@
         $row = mysqli_fetch_assoc($resultData)
     ?>
     <div class="welcome-statement">
-        <h1>Welcome <span class= "username"><?= $row['username']?></span></h1>
-        <p>We are thrilled to have you here! Spacet is your gateway to explore the fascinating intersection of computer engineering and the vast realm of space. Whether you're a budding enthusiast or a seasoned expert, our platform is designed to fuel your curiosity and passion for all things space-related in the world of computer engineering.</p>
+        <h1>Welcome <span class= "username"><?= $row['username']?>!</span></h1>
+        <p id="typing-effect"></p>
     </div>
     <div class="ticket-main">
         <div class="ticket-main-body" id="ticket">

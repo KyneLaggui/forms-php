@@ -31,5 +31,31 @@ function barcodeAnimation() {
   });
 }
 
-barcodeAnimation(); // Initial animation
-setInterval(barcodeAnimation, 4000); // Repeating animation
+barcodeAnimation(); 
+setInterval(barcodeAnimation, 4000); 
+
+const text = "We are thrilled to have you here! Spacet is your gateway to explore the fascinating intersection vast realm of space.";
+const typingSpeed = 60; 
+const backspaceSpeed = 10;
+const pauseDuration = 3000;
+const element = document.getElementById("typing-effect");
+
+let index = 0;
+let isBackspacing = false;
+
+function typeText() {
+    if (!isBackspacing && index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText, typingSpeed);
+    } else if (isBackspacing && index > 0) {
+        element.innerHTML = text.substring(0, index - 1);
+        index--;
+        setTimeout(typeText, backspaceSpeed);
+    } else {
+        isBackspacing = !isBackspacing;
+        setTimeout(typeText, pauseDuration);
+    }
+}
+
+typeText();
