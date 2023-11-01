@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="./includes/register-inc.php" class="registration-box" id="registration-form">
+        <form action="./includes/registration.inc.php" class="registration-box" id="registration-form" method="post">
             <div class="back-btn-container">
                 <a href="index.php">
                     <i class='fas fa-arrow-circle-left' id="back-btn"></i>                
@@ -68,7 +68,7 @@
                         <label>First Name</label>
                     </div>
                     <div class="field-inputs password-field" id="input-group">  
-                        <input type="text" name="lname" required  >
+                        <input type="text" name="lname" >
                         <label>Middle Name</label>
                     </div>
                     <div class="field-inputs password-field" id="input-group">  
@@ -82,7 +82,7 @@
                         <label>Birthdate</label>
                     </div>
                     <div class="field-inputs short-inputs" id="input-group">  
-                        <input type="number" name="age" id="age" required disabled>
+                        <input type="number" name="age" id="age" required readonly >
                         <label id="age-label">Age</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
@@ -92,11 +92,11 @@
                 </div>
                 <div class="fourth-row row">
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="email" required id="phone-input">
+                        <input type="text" name="contact-num" required id="phone-input">
                         <label>Contact Number</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="birthdate" required id="tel-input">
+                        <input type="text" name="tel-num" required id="tel-input" maxlength="15">
                         <label>Telephone Number</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 
@@ -128,7 +128,7 @@
                         <label>Province/City</label>
                     </div>                    
                     <div class="field-inputs medium-inputs"> 
-                        <select name="municiaplity" required id="municipality">
+                        <select name="city/municiaplity" required id="municipality">
                             <option value="" disabled selected>--Select Municipality/City--</option>                            
                         </select>
                         <label>Municipality/City</label>

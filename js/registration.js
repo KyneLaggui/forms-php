@@ -13,7 +13,6 @@ const invalidateInput = (checkElementId, exElementId) => {
 	exElement.style.display = 'inline'
 }
 
-
 // Other input display
 const otherGender = document.querySelector(".other-gender");
 const gender = document.querySelector("#gender");
@@ -167,10 +166,6 @@ function ageFormatter() {
 
 birthdate.addEventListener('input', ageFormatter);
 // End of auto format inputs
-
-
-
-
 
 // Automatic dropdown
 const regionSelection = document.querySelector("#region");
