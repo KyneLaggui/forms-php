@@ -20,19 +20,42 @@
     font-family: 'Inter', sans-serif;
   }
 
-
-  .ticket-main {
-    
+  .welcome-statement {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    margin: 2% 20% 1% 20%;
+    gap: 1em;
+    text-align: center;
+    height: 7em;
+  }
+
+  .welcome-statement h1 {
+    font-size: 2.5em;
+    font-weight: 400;
+  }
+
+
+  .welcome-statement .username {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: aliceblue;
+    text-shadow: 1px 1px 25px aqua;
+  }
+  
+
+  .ticket-main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 
   }
   
   .ticket-main-body {
-    width: 50em;
+    width: 55em;
     margin: 1em auto;
     position: relative;
     transition: all 300ms cubic-bezier(0.03, 0.93, 0.53, 0.99) 0s;
@@ -55,7 +78,7 @@
   }
   
   .ticket-top {
-    padding: 2em 11em 2em 2em;
+    padding: 2em 10em 2em 2em;
   }
 
   .ticket-title {
@@ -136,7 +159,7 @@
 
   
   .ticket-bottom { 
-    padding: 0em 8em 2em 2em;
+    padding: 0em 10em 2em 2em;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -174,7 +197,7 @@
   
   .ticket-right-wrapper {
     position: absolute;
-    right: 70px;
+    right: 50px;
     bottom: 0;
   }
 
@@ -250,9 +273,143 @@
     border-bottom: 1px solid aqua;
     padding-bottom: 5px;
     text-shadow: 1px 1px 25px aqua;
-    /* text-shadow: 1px 1px 35px aqua; */
     animation: glow 2s infinite alternate;
   }
+
+  .buttons-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-decoration: none;
+    margin: 1em;
+    
+  }
+
+  .profile-button {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    height: 3.1em;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+
+  .profile-button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .profile-button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+
+  .profile-button:hover::before{
+    -webkit-animation: wipeAnim 0.5s 0s linear;
+    -moz-animation: wipeAnim 0.5s 0s linear;
+    animation: wipeAnim 0.5s 0s linear;
+  }
+
+  .profile-button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+
+  .logout-button {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    color: white;
+    background: #7743DB;
+    border: none;
+    letter-spacing: 2px;
+   
+  }
+
+  .logout-button a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .logout-button svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .logout-button span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .logout-button:hover svg {
+    transform: translateX(5px) rotate(90deg);
+  }
+
+  .logout-button:hover {
+    background: rgb(212, 7, 7);
+    box-shadow: 0 0 30px 5px rgba(224, 24, 5, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  .logout-button:hover span {
+    transform: translateX(7px);
+  }
+
+  @keyframes wipeAnim {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+
+  .profile-button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
 
   
   @media only screen and (max-width: 840px) {
@@ -296,7 +453,7 @@
     }
 
     .ticket-top {
-      padding: 2em;
+      padding: 0em 2em 2em 2em;
       
     }
 
