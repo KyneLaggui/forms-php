@@ -1,9 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/inter');
-@import url('https://fonts.cdnfonts.com/css/fira-code-2');
 @import url('https://fonts.cdnfonts.com/css/space-mono');
 
   
-  body {
+body {
     background-image: url('./Images/Dashboard.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,16 +10,16 @@
     color: #fff;
     max-width: 100%;
     
-  }
+}
   
-  * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-  }
+}
 
-  .welcome-statement {
+.welcome-statement {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,32 +27,32 @@
     margin: 2% 20% 1% 20%;
     gap: 1em;
     text-align: center;
-  }
+}
 
-  .welcome-statement h1 {
+.welcome-statement h1 {
     font-size: 2.5em;
     font-weight: 400;
-  }
+}
 
 
-  .welcome-statement .username {
+.welcome-statement .username {
     font-size: 1.5em;
     font-weight: 700;
     color: aliceblue;
     text-shadow: 1px 1px 25px aqua;
-  }
+}
   
 
-  .ticket-main {
+.ticket-main {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 
-  }
+}
   
-  .ticket-main-body {
+.ticket-main-body {
     width: 55em;
     margin: 1em auto;
     position: relative;
@@ -65,21 +64,21 @@
     backdrop-filter: blur(6.1px);
     -webkit-backdrop-filter: blur(6.1px);
     border: 1px solid rgba(255, 255, 255, 0.39);
-  }
+}
   
   
-  .ticket-visual-wrapper {
+.ticket-visual-wrapper {
     width: 100%;
     height: 100%;
     border-radius: 15px;
     position: relative;
-  }
+}
   
-  .ticket-top {
+.ticket-top {
     padding: 2em 10em 2em 2em;
-  }
+}
 
-  .ticket-title {
+.ticket-title {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -89,96 +88,91 @@
     padding-left: 2em;
     position: relative
     
-  }
+}
 
-  .ticket-title p {
+.ticket-title p {
     font-family: 'Space Mono', sans-serif;
-  }
+}
 
-  .ticket-logo-img {
+.ticket-logo-img {
     height: 3em;
     width: 6em;
     object-fit: contain;
-  }
+}
 
-  .image-name {
+.image-name {
     display: flex;
     justify-content: center;
     gap: 1em;
-  }
+}
 
-  .ticket-profile-details {
+.ticket-profile-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    
-  }
+}
   
-  .ticket-profile-img {
+.ticket-profile-img {
     width: 6em;
     height: 6em;
     border-radius: 50%;
     object-fit: cover;
-  }
+}
   
-  .ticket-profile-name { 
+.ticket-profile-name { 
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
     gap: 0.3em;
-  }
+}
 
-  .ticket-surname {
+.ticket-surname {
     font-size: 3em;
     font-weight: 700;
-  }
+}
 
-  .ticket-name {
+.ticket-name {
     font-size: 1.3em;
     font-weight: 200;
-  }
+}
 
-  .ticket-personal-information {
+.ticket-personal-information {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     gap: 0.3em;
     font-size: 0.8em;
-    
-   
-  }
+}
 
-  .ticket-personal-information p{
+.ticket-personal-information p{
     font-family: 'Space Mono', sans-serif !important;
-  }
+}
 
   
-  .ticket-bottom { 
+.ticket-bottom { 
     padding: 0em 10em 2em 2em;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
     gap: 1.5em;
-  }
+}
 
-  .information {
+.information {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-  }
+}
 
-  .ticket-bottom h1 { 
-
+.ticket-bottom h1 { 
     font-size: 1.3em;
     margin-bottom: 0.5em;
-  }
+}
 
-  .group-information {
+.group-information {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,38 +180,37 @@
     gap: 4em;
     flex-wrap: wrap;
     text-align: center;
-  }
+}
 
-  .ticket-bottom p { 
+.ticket-bottom p { 
     font-size: 0.8em;
     font-family: 'Space Mono', sans-serif !important;
-  }
+}
   
-  .ticket-right-wrapper {
+.ticket-right-wrapper {
     position: absolute;
     right: 50px;
     bottom: 0;
-  }
+}
 
-  .numbers {
+.numbers {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4.5em;
+}
 
-  }
-
-  .blue-text{
+.blue-text{
     color: aliceblue;
     text-shadow: 1px 1px 25px aqua;
     font-weight: 600;
-  }
+}
 
-  .numbers p {
+.numbers p {
     font-family: 'Space Mono', sans-serif !important;
-  }
+}
   
-  .ticket-number {
+.ticket-number {
     transform: rotate(90deg) translateY(calc(100px * 1));
     transform-origin: bottom right;
     font-size: 0.9em;
@@ -229,23 +222,21 @@
     justify-content: center;
     flex-direction: column;
     gap: 1.5em;
-  }
+}
   
-  .logout-button,
-  .profile-button {
+.logout-button,
+.profile-button {
     cursor: pointer;
-  }
-  /* Barcode */
-  
-  
-  @keyframes glow {
+}
+
+@keyframes glow {
     0% { box-shadow: 0 0 -2px  1 rgba(61, 72, 70, .4) }
     40% { box-shadow: 0 0 20px 3px rgba(61, 72, 70, .5) }
     60% { box-shadow: 0 0 30px 3px rgba(61, 72, 70, .3) }
     100% { box-shadow: 0 0 -10px 0 rgba(61, 72, 70, .2) }
-  }
+}
 
-  #barcode, .animatedSpan{
+#barcode, .animatedSpan{
     position: relative;
     color: black;
     font-family: 'Libre Barcode 128 Text', cursive !important;
@@ -253,9 +244,9 @@
     font-weight: 100;
     white-space: no-wrap;
     cursor: pointer;
-  }
+}
   
-  .animatedSpan{
+.animatedSpan{
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -264,31 +255,30 @@
     &:hover {
       color: aqua;
     }
-  }
+}
   
-  .barcodeSelected{
+.barcodeSelected{
     color: #C3ACD0;
-  }
+}
   
-  .highlighted{
+.highlighted{
     color: aliceblue;
     border-bottom: 1px solid aqua;
     padding-bottom: 5px;
     text-shadow: 1px 1px 25px aqua;
     animation: glow 2s infinite alternate;
-  }
+}
 
-  .buttons-bottom {
+.buttons-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
     text-decoration: none;
-    margin: 1em;
-    
-  }
+    margin: 1em;  
+}
 
-  .profile-button {
+.profile-button {
     position: relative;
     padding: 10px 20px;
     border-radius: 7px;
@@ -305,28 +295,28 @@
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-  }
+}
 
-  .profile-button a {
+.profile-button a {
     text-decoration: none;
     color: white;
-  }
+}
 
-  .profile-button:hover {
+.profile-button:hover {
     background: rgb(61, 106, 255);
     box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-  }
+}
 
-  .profile-button:hover::before{
+.profile-button:hover::before{
     -webkit-animation: wipeAnim 0.5s 0s linear;
     -moz-animation: wipeAnim 0.5s 0s linear;
     animation: wipeAnim 0.5s 0s linear;
-  }
+}
 
-  .profile-button::before {
+.profile-button::before {
     content: '';
     display: block;
     width: 0px;
@@ -342,9 +332,9 @@
     -ms-transform: skewX(-20deg);
     -o-transform: skewX(-20deg);
     transform: skewX(-20deg);
-  }
+}
 
-  .logout-button {
+.logout-button {
     display: flex;
     align-items: center;
     font-weight: 600;
@@ -356,63 +346,61 @@
     border: none;
     letter-spacing: 2px;
    
-  }
+}
 
-  .logout-button a{
+.logout-button a{
     text-decoration: none;
     color: white;
-  }
+}
   
-  .logout-button svg {
+.logout-button svg {
     margin-right: 3px;
     transform: rotate(30deg);
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-  }
+}
   
-  .logout-button span {
+.logout-button span {
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-  }
+}
   
-  .logout-button:hover svg {
+.logout-button:hover svg {
     transform: translateX(5px) rotate(90deg);
-  }
+}
 
-  .logout-button:hover {
+.logout-button:hover {
     background: rgb(212, 7, 7);
     box-shadow: 0 0 30px 5px rgba(224, 24, 5, 0.815);
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-  }
+}
   
-  .logout-button:hover span {
+.logout-button:hover span {
     transform: translateX(7px);
+}
+
+@keyframes wipeAnim {
+  from {
+    opacity: 0;
+    left: 0%;
   }
 
-  @keyframes wipeAnim {
-    from {
-      opacity: 0;
-      left: 0%;
-    }
-  
-    50% {
-      opacity: 1;
-    }
-  
-    to {
-      opacity: 0;
-      left: 100%;
-    }
+  50% {
+    opacity: 1;
   }
 
-  .profile-button:active {
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.profile-button:active {
     box-shadow: 0 0 0 0 transparent;
     -webkit-transition: box-shadow 0.2s ease-in;
     -moz-transition: box-shadow 0.2s ease-in;
     transition: box-shadow 0.2s ease-in;
-  }
-  
-
+}
   
   @media only screen and (max-width: 840px) {
 

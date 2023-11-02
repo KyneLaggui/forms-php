@@ -165,24 +165,13 @@ form .all-inputs .field-inputs{
 }
 
 #login-btn {
-    /* width: 100%;
-    border-radius: 30px;
-    padding: 0 10px;
-    font-size: 1.2rem;
-    height: 42px;
-    background: #7743DB;
-    color: var(--white);
-    border: none; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3em;
     background: transparent;
     border: none;
-
 }
-
-
 
 .login-button-main {
     display: flex;
@@ -196,7 +185,7 @@ form .all-inputs .field-inputs{
     transition: 1s;
     border-radius: 25px;
     box-shadow: 0 0 0.2em 0 #31beea;
-  }
+}
   
 .login-button-main:hover, .login-button-main:focus {
     transition: 0.5s;
@@ -249,8 +238,7 @@ form .all-inputs .field-inputs{
     animation: color_anim 1s infinite 0.4s;
 }
   
-  /* SVG animations */
-  @keyframes color_anim {
+@keyframes color_anim {
     0% {
       fill: white;
     }
@@ -262,21 +250,21 @@ form .all-inputs .field-inputs{
     100% {
       fill: white;
     }
-  }
+}
   
-  @-webkit-keyframes login-button-main {
+@-webkit-keyframes login-button-main {
     0% {
       outline: 0.2em solid #C2D9FF;
       outline-offset: 0;
     }
-  }
+}
   
-  @keyframes login-button-main {
+@keyframes login-button-main {
     0% {
       outline: 0.2em solid #C2D9FF;
       outline-offset: 0;
     }
-  }
+}
 
 #sign-up {
     color: aqua;

@@ -29,7 +29,7 @@
             <div class="all-inputs">
                 <div class="first-row row">
                     <div>
-                        <img src="./Images/Profile-Picture.jpg" alt="Astronaut Picture" class="full-pic">
+                        <img src="./Images/try.png" alt="Umasa Picture" class="full-pic">
                     </div>
                     <div class="first-row-inputs">
                         <div class="field-inputs" id="input-group">  
