@@ -45,6 +45,7 @@
                         <label>Password</label>
                     </div>
                 </div>
+
                 <button type="submit" id="login-btn">
                     <div class="login-button-main">
                         <span class="btn-title">Launch</span>
