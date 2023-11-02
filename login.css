@@ -100,7 +100,7 @@ form .all-inputs .field-inputs{
 #input-group input{
     font-size: 1rem;
     color: var(--white);
-    padding: 0 10px;
+    padding: 0 20px;
     background: transparent;
     border: 1.2px solid #fff;
     outline: none;

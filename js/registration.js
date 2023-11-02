@@ -28,19 +28,24 @@ gender.addEventListener("change", () => {
 // Client side validations
 const registrationForm = document.querySelector("#registration-form");
 
-registrationForm.addEventListener('submit', (e) => {
-	e.preventDefault();
-	// Input boxes
-	const password = document.querySelector("#password");
-	const confirmPassword = document.querySelector("#cpassword");
-	const contactNumber = document.querySelector("#phone-input");
-	const email = document.querySelector("#email");
-	const age = document.querySelector("#age");
+// Input boxes
+const password = document.querySelector("#password");
+const confirmPassword = document.querySelector("#cpassword");
+const contactNumber = document.querySelector("#phone-input");
+const email = document.querySelector("#email");
+const age = document.querySelector("#age");
+
+const validateAllInput = (e = null) => {
 	// Input values
 	const passwordValue = password.value;
 	const cpasswordValue = confirmPassword.value;
+	console.log('okay');
 	let hasError = false;
 
+	if (e !== null) {
+		e.preventDefault();
+	}
+	
 	if (passwordValue.length < 8) {
 		invalidateInput('length-check', 'length-ex');
 		hasError = true;
@@ -70,13 +75,13 @@ registrationForm.addEventListener('submit', (e) => {
 		hasError = true;
 	}
 
-	if (passwordValue === cpasswordValue) {
+	if (passwordValue === cpasswordValue && passwordValue !== "" && cpasswordValue !== "") {
 		validateInput('match-check', 'match-ex');
 	} else {
 		invalidateInput('match-check', 'match-ex');
 		hasError = true;
 	}
-	
+
 	if (contactNumber.value.replace(/[^\d]/g, '').length === 12) {
 		validateInput('contact-check', 'contact-ex');
 	} else {
@@ -98,13 +103,22 @@ registrationForm.addEventListener('submit', (e) => {
 		hasError = true;
 	}
 
-	if (!hasError) {
+	if (!hasError && e !== null) {
 		registrationForm.submit();
 	}
+}
+
+registrationForm.addEventListener('submit', (e) => {
+	validateAllInput(e);
 })
 
+age.addEventListener('change', validateAllInput);
+email.addEventListener('change', validateAllInput);
+contactNumber.addEventListener('change', validateAllInput);
+password.addEventListener('change', validateAllInput);
+confirmPassword.addEventListener('change', validateAllInput);
 // End of client side validations
-
+validateAllInput();
 
 // Auto format input
 const phoneNumberInput = document.getElementById('phone-input');
@@ -162,6 +176,8 @@ function ageFormatter() {
 	ageLabel.style.top = '-14px';
 	ageLabel.style.left = '0px';
     ageInput.value = age;
+	let event = new Event('change');
+	ageInput.dispatchEvent(event);
 }
 
 birthdate.addEventListener('input', ageFormatter);
@@ -173,9 +189,16 @@ const provinceSelection = document.querySelector("#province");
 const municipalitySelection = document.querySelector("#municipality");
 const barangaySelection = document.querySelector("#barangay");
 
+// Detecting whether the it is on registration page or edit details page
+let fileName = location.href.split("/").slice(-1); 
+
 async function findBarangay(municipalityCode) {
     let response;
     let barangays;
+	let currentBarangay;
+	if (fileName[0] === 'edit-details.php') {
+		currentBarangay = barangaySelection.getAttribute('value');
+	}
     if (provinceSelection.value.toLowerCase().replace(/ /g,'').includes('city')) {
         response = await fetch(`https://psgc.gitlab.io/api/cities/${municipalityCode}/barangays.json`);
         barangays = await response.json();
@@ -191,11 +214,20 @@ async function findBarangay(municipalityCode) {
         newOpt.code = barangays[i]['code'];
         newOpt.value = barangays[i]['name'];
         barangaySelection.appendChild(newOpt);
+		if (currentBarangay === barangays[i]['name']) {
+			newOpt.selected = 'selected;'
+		}
     }
 }
 
 async function findMunicipality(provinceCode) {
     removeOptions(municipalitySelection);
+	// This section is for edit details webpage
+	let currentMunicipality;
+	if (fileName[0] === 'edit-details.php') {
+		currentMunicipality = municipalitySelection.getAttribute('value')
+	}
+	// End of section
     if (provinceSelection.value.toLowerCase().replace(/ /g,'').includes('city')) {
         let newOpt = document.createElement('option');
         newOpt.textContent = provinceSelection.value;
@@ -211,6 +243,9 @@ async function findMunicipality(provinceCode) {
             newOpt.code = municipalities[i]['code'];
             newOpt.value = municipalities[i]['name'];
             municipalitySelection.appendChild(newOpt);
+			if (currentMunicipality === municipalities[i]['name']) {
+				newOpt.selected = 'selected;'
+			}
         }	
         for (let i = 0; i < municipalities.length; i++) {
             if (municipalities[i]['name'] === municipalitySelection.value) {
@@ -228,13 +263,25 @@ async function findProvince(regionCode) {
 	const provinces = await response.json();
     const secondResponse = await fetch(`https://psgc.gitlab.io/api/regions/${regionCode}/cities.json`);
 	const cities = await secondResponse.json();
+
+	// This section is for edit details webpage
+	let currentProvince;
+	if (fileName[0] === 'edit-details.php') {
+		currentProvince = provinceSelection.getAttribute('value')
+	}
+	// End of section
+
 	removeOptions(provinceSelection);
+
 	for (let i = 0; i < provinces.length; i++) {
 		let newOpt = document.createElement('option');
 		newOpt.textContent = provinces[i]['name'];
 		newOpt.code = provinces[i]['code'];
 		newOpt.value = provinces[i]['name'];
 		provinceSelection.appendChild(newOpt);
+		if (currentProvince === provinces[i]['name']) {
+			newOpt.selected = 'selected;'
+		}
 	}	
     for (let i = 0; i < cities.length; i++) {
 		let newOpt = document.createElement('option');
@@ -242,9 +289,13 @@ async function findProvince(regionCode) {
 		newOpt.code = cities[i]['code'];
 		newOpt.value = cities[i]['name'];
 		provinceSelection.appendChild(newOpt);
+		if (currentProvince === cities[i]['name']) {
+			newOpt.selected = 'selected;'
+		}
 	}
 
     if (provinceSelection[provinceSelection.selectedIndex].value.toLowerCase().replace(/ /g,'').includes('city')) {
+		// Empty string since you just need to trigger the function itself
         findMunicipality("");
         findBarangay(provinceSelection[provinceSelection.selectedIndex].code);
     } 
@@ -265,18 +316,35 @@ async function findProvince(regionCode) {
 
 async function generateRegions() {
 	const response = await fetch(`https://psgc.gitlab.io/api/regions.json`);
+
 	const regions = await response.json();
-	for (let i = 0; i < regions.length; i++) {
-		let newOpt = document.createElement('option');
-		let clone = newOpt.cloneNode(true);
-		newOpt.textContent = regions[i]['name'];
-		newOpt.code = regions[i]['code'];
-		newOpt.value = regions[i]['name'];
-		clone.textContent = regions[i]['name'];
-		clone.code = regions[i]['code'];
-		clone.value = regions[i]['name'];
-		regionSelection.appendChild(newOpt);
-	}	
+	// This section is for edit details webpage
+	let currentRegion;
+	if (fileName[0] === 'edit-details.php') {
+		currentRegion = regionSelection.getAttribute('value')
+	}
+	// End of section
+	if (currentRegion) {
+		for (let i = 0; i < regions.length; i++) {
+			let newOpt = document.createElement('option');
+			newOpt.textContent = regions[i]['name'];
+			newOpt.code = regions[i]['code'];
+			newOpt.value = regions[i]['name'];
+			if (currentRegion === regions[i]['name']) {
+				newOpt.selected = 'selected;'
+			}
+			regionSelection.appendChild(newOpt);
+		}	
+	} else {
+		for (let i = 0; i < regions.length; i++) {
+			let newOpt = document.createElement('option');
+			newOpt.textContent = regions[i]['name'];
+			newOpt.code = regions[i]['code'];
+			newOpt.value = regions[i]['name'];
+			regionSelection.appendChild(newOpt);
+		}	
+	}
+	
 	for (let i = 0; i < regions.length; i++) {
 		if (regions[i]['name'] === regionSelection.value) {
 			findProvince(regions[i]['code'])

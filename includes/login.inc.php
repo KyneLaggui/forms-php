@@ -72,7 +72,7 @@
     $dBPassword = '';
     $dBName = 'spacet';
 
-    $email = $_POST['email'];
+    $email = strtolower($_POST['email']);
     $userPassword = $_POST['password'];
 
     $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
