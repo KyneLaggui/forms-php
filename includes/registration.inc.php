@@ -1,4 +1,5 @@
 <?php        
+    session_start();
     if (!empty($_POST)) {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -87,6 +88,9 @@
         mysqli_stmt_bind_param($stmtAddress, "sssss", $email, $region, $cityProvince, $cityMunicipality, $barangay);
         mysqli_stmt_execute($stmtAddress);
         mysqli_stmt_close($stmtAddress);
+        if (isset($_SESSION['error'])) {
+            unset($_SESSION['error']);
+        }
         header("location: ../index.php?error=none");
         exit();
     }               

@@ -47,7 +47,7 @@
                 </div>
 
                 <button type="submit" id="login-btn">
-                    <div class="login-button-main" href="#">
+                    <div class="login-button-main">
                         <span class="btn-title">Launch</span>
                         <span class="icon-arrow">
                             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -58,7 +58,7 @@
                                 </g>
                             </svg> 
                         </span>
-                </div>
+                    </div>
                 </button>
                 <p class="no-account">Don't have an account?&nbsp;<a id="sign-up" href="registration.php">Sign Up</a></p>
             </div>
