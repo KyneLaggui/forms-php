@@ -58,7 +58,7 @@
                                 </g>
                             </svg> 
                         </span>
-                </div>
+                    </div>
                 </button>
                 <p class="no-account">Don't have an account?&nbsp;<a id="sign-up" href="registration.php">Sign Up</a></p>
             </div>
