@@ -27,6 +27,21 @@
     $resultData = mysqli_stmt_get_result($stmt);
 
     $row = mysqli_fetch_assoc($resultData);
+
+    // For address
+    $sqlAddress = "SELECT * FROM address WHERE email = ?;";
+    $stmtAddress = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmtAddress, $sqlAddress)) {
+        header("location: index.php?error=queryerrror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmtAddress, "s", $_SESSION['email']);
+    mysqli_stmt_execute($stmtAddress);
+
+    $resultDataAddress = mysqli_stmt_get_result($stmtAddress);
+
+    $rowAddress = mysqli_fetch_assoc($resultDataAddress);
 ?>
 
 
@@ -168,25 +183,25 @@
                 </div>
                 <div class="fifth-row row">
                     <div class="field-inputs medium-inputs"> 
-                        <select name="region" id="region" value="<?=$row['region']?>" >
+                        <select name="region" id="region" value="<?=$rowAddress['region']?>" >
                             <option value="" disabled selected>--Select Region--</option>
                         </select>
                         <label>Region</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 
-                        <select name="city/province" id="province" value="<?=$row['city_province']?>" >
+                        <select name="city/province" id="province" value="<?=$rowAddress['province_or_city']?>" >
                             <option value="" disabled selected>--Select Province/City--</option>                
                         </select>
                         <label>Province/City</label>
                     </div>                    
                     <div class="field-inputs medium-inputs"> 
-                        <select name="city/municipality" id="municipality" value="<?=$row['city_municipality']?>" >
+                        <select name="city/municipality" id="municipality" value="<?=$rowAddress['municipality']?>" >
                             <option value="" disabled selected>--Select Municipality/City--</option>                            
                         </select>
                         <label>Municipality/City</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 
-                        <select name="barangay" id="barangay" value="<?=$row['barangay']?>">
+                        <select name="barangay" id="barangay" value="<?=$rowAddress['barangay']?>">
                             <option value="" disabled selected>--Select Barangay--</option>                            
                         </select>
                         <label>Barangay</label>

@@ -56,8 +56,8 @@
         }
 
         $sql = "INSERT INTO users(username, user_password, first_name, middle_name,
-            last_name, birthdate, age, email, contact_number, tel_number, gender,
-            region, city_province, city_municipality, barangay) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            last_name, birthdate, age, email, contact_number, tel_number, gender)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../registration.php?error=stmtfailed");
@@ -67,11 +67,26 @@
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
         $formattedCelnumber = preg_replace('/[^0-9]/', '', $contactNum);
 
-        mysqli_stmt_bind_param($stmt, "ssssssissssssss", $username, $hashedPwd, $fname, $mname, 
-            $lname, $birthdate, $age, $email, $formattedCelnumber, $telNum, $gender, $region, $cityProvince,
-            $cityMunicipality, $barangay) ;
+        mysqli_stmt_bind_param($stmt, "ssssssissss", $username, $hashedPwd, $fname, $mname, 
+            $lname, $birthdate, $age, $email, $formattedCelnumber, $telNum, $gender) ;
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+
+        // For address table
+        $sqlAddress = "INSERT INTO address(email, region, province_or_city, municipality, barangay)
+            VALUES (?, ?, ?, ?, ?);";
+        $stmtAddress = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmtAddress, $sqlAddress)) {
+            header("location: ../registration.php?error=stmtfailed");
+            exit();
+        }
+
+        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+        $formattedCelnumber = preg_replace('/[^0-9]/', '', $contactNum);
+
+        mysqli_stmt_bind_param($stmtAddress, "sssss", $email, $region, $cityProvince, $cityMunicipality, $barangay);
+        mysqli_stmt_execute($stmtAddress);
+        mysqli_stmt_close($stmtAddress);
         header("location: ../index.php?error=none");
         exit();
     }               

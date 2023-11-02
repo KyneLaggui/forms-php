@@ -38,7 +38,22 @@
 
         $resultData = mysqli_stmt_get_result($stmt);
 
-        $row = mysqli_fetch_assoc($resultData)
+        $row = mysqli_fetch_assoc($resultData);
+
+        // For address query
+        $sqlAddress = "SELECT * FROM address WHERE email = ?;";
+        $stmtAddress = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmtAddress, $sqlAddress)) {
+            header("location: index.php?error=queryerrror");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmtAddress, "s", $_SESSION['email']);
+        mysqli_stmt_execute($stmtAddress);
+
+        $resultDataAddress = mysqli_stmt_get_result($stmtAddress);
+
+        $rowAddress = mysqli_fetch_assoc($resultDataAddress)
     ?>
     <div class="welcome-statement">
         <h1>Welcome <span class= "username"><?= $row['username']?>!</span></h1>
@@ -89,10 +104,10 @@
                     <div class="information">
                         <h1>LOCATION</h1>
                         <div class="group-information">
-                            <p class="Region"><span class="blue-text">REGION</span><br> <?= $row['region']?></p>
-                            <p class="Province/City"><span class="blue-text">PROVINCE/CITY</span><br> <?= $row['city_province']?></p>
-                            <p class="Municipality"><span class="blue-text">MUNICIPALITY</span><br> <?= $row['city_municipality']?></p>
-                            <p class="Barangay"><span class="blue-text">BARANGAY</span><br> <?= $row['barangay']?></p>
+                            <p class="Region"><span class="blue-text">REGION</span><br> <?= $rowAddress['region']?></p>
+                            <p class="Province/City"><span class="blue-text">PROVINCE/CITY</span><br> <?= $rowAddress['province_or_city']?></p>
+                            <p class="Municipality"><span class="blue-text">MUNICIPALITY</span><br> <?= $rowAddress['municipality']?></p>
+                            <p class="Barangay"><span class="blue-text">BARANGAY</span><br> <?= $rowAddress['barangay']?></p>
                         </div>
                     </div>
                 </div>

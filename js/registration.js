@@ -39,7 +39,6 @@ const validateAllInput = (e = null) => {
 	// Input values
 	const passwordValue = password.value;
 	const cpasswordValue = confirmPassword.value;
-	console.log('okay');
 	let hasError = false;
 
 	if (e !== null) {
@@ -102,8 +101,8 @@ const validateAllInput = (e = null) => {
 		invalidateInput('age-check', 'age-ex')
 		hasError = true;
 	}
-
-	if (!hasError && e !== null) {
+	
+	if (!hasError && e.type === 'submit') {
 		registrationForm.submit();
 	}
 }
