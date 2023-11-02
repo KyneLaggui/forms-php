@@ -110,8 +110,9 @@
                         <label>Birthdate</label>
                     </div>
                     <div class="field-inputs short-inputs" id="input-group">  
-                        <input type="number" name="age" id="age" required readonly >
+                        <input type="number" name="age" id="age" required class="non-clickable">
                         <label id="age-label">Age</label>
+                        <div class="overlay"></div>
                     </div>
                     <div class="field-inputs" id="input-group">  
                         <input type="text" name="email" required id="email">
@@ -156,7 +157,7 @@
                         <label>Province/City</label>
                     </div>                    
                     <div class="field-inputs medium-inputs"> 
-                        <select name="city/municiaplity" required id="municipality">
+                        <select name="city/municipality" required id="municipality">
                             <option value="" disabled selected>--Select Municipality/City--</option>                            
                         </select>
                         <label>Municipality/City</label>

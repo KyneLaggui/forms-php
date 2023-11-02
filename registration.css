@@ -127,7 +127,8 @@ form .all-inputs .field-inputs{
 #input-group input:focus~label,
 #input-group input:valid~label,
 .field-inputs select~label,
-.active-age {
+.active-age,
+#input-group label.edit-detail-automatic {
     position: absolute;
     top: -14px;
     left: 0;
@@ -139,6 +140,18 @@ form .all-inputs .field-inputs{
     display: none;
 }
 
+.non-clickable, #age {
+    pointer-events: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
 
 .all-inputs {
     width: 100%;
@@ -147,6 +160,10 @@ form .all-inputs .field-inputs{
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+input[type='date'], select {
+    cursor: pointer;
 }
 
 .field-inputs input {

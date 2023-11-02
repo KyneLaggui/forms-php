@@ -3,10 +3,32 @@
 ?>
 
 <?php
-    if (isset($_SESSION['email'])) {
-        header('location: ./dashboard.php');
+    if (!isset($_SESSION['email'])) {
+        header('location: ./index.php');
     }
+
+    $serverName = 'localhost:3306';
+    $dBUsername = 'root';
+    $dBPassword = '';
+    $dBName = 'spacet';
+
+    $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+
+    $sql = "SELECT * FROM users WHERE email = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: index.php?error=queryerrror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION['email']);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    $row = mysqli_fetch_assoc($resultData);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +41,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="./includes/registration.inc.php" class="registration-box" id="registration-form" method="post">
+        <form action="./includes/edit.inc.php" class="registration-box" id="registration-form" method="post">
             <div class="back-btn-container">
                 <a href="dashboard.php">
                     <i class='fas fa-arrow-circle-left' id="back-btn"></i>                
@@ -33,12 +55,12 @@
                     </div>
                     <div class="first-row-inputs">
                         <div class="field-inputs" id="input-group">  
-                            <input type="text" name="username" id="username" required>
+                            <input type="text" name="username" id="username" value="<?= $row['username']?>" required>
                             <label>Username</label>
                         </div>
                         <div class="field-inputs password-field" id="input-group">  
                             <input type="text" name="password" id="password" required>
-                            <label>Password</label>
+                            <label>New Password</label>
                         </div>
                         <div class="field-inputs password-field" id="input-group" >  
                             <input type="text" name="cpassword" id ="cpassword" required>
@@ -92,51 +114,53 @@
                 </div>
                 <div class="second-row row">
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="fname" required >
+                        <input type="text" name="fname" value="<?= $row['first_name']?>" required >
                         <label>First Name</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="mname" required >
+                        <input type="text" name="mname" value="<?= $row['middle_name']?>" required >
                         <label>Middle Name</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="lname" required>
+                        <input type="text" name="lname" value="<?= $row['last_name']?>" required>
                         <label>Last Name</label>
                     </div>
                 </div>
                 <div class="third-row row">                    
                     <div class="field-inputs medium-inputs" id="input-group">  
-                        <input type="date" name="birthdate" id="birthdate" max="<?php echo date("Y-m-d"); ?>"required>
+                        <input type="date" name="birthdate" id="birthdate" max="<?php echo date("Y-m-d"); ?>" value="<?=$row['birthdate']?>" required>
                         <label>Birthdate</label>
                     </div>
                     <div class="field-inputs short-inputs" id="input-group">  
-                        <input type="number" name="age" id="age" required readonly >
-                        <label id="age-label">Age</label>
+                        <input type="number" name="age" id="age" value="<?= $row['age']?>" required class="non-clickable">
+                        <label class="edit-detail-automatic" id="age-label">Age</label>
+                        <div class="overlay"></div>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="email" required id="email">
-                        <label>Email Address</label>
+                        <input type="text" name="email" required id="email" value="<?= $row['email']?>" readonly>
+                        <label class="edit-detail-automatic" >Email Address</label>
                     </div>
                 </div>
                 <div class="fourth-row row">
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="contact-num" required id="phone-input">
+                        <input type="text" name="contact-num" required id="phone-input" value="<?= $row['contact_number']?>">
                         <label>Contact Number</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="tel-num" required id="tel-input" maxlength="15">
+                        <input type="text" name="tel-num" required id="tel-input" maxlength="15" value="<?= $row['tel_number']?>">
                         <label>Telephone Number</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 
                         <select name="gender" required id="gender">
                             <option value="" disabled selected>--Select Gender--</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="others">Others</option>                            
-                            <option value="N/A">Prefer not to say</option>
+                            <option value="male" <?php if ($row['gender'] == 'male') echo "selected";?> >Male</option>
+                            <option value="female" <?php if ($row['gender'] == 'female') echo "selected";?>>Female</option>
+                            <option value="others" <?php if (!$row['gender'] == 'male' && !$row['gender'] == 'female' &&
+                             !$row['gender'] == 'N/A') echo "selected";?>>Others</option>                            
+                            <option value="N/A" <?php if ($row['gender'] == 'N/A') echo "selected";?>>Prefer not to say</option>
                         </select>
                         <label>Gender</label>
-                    </div>
+                    </div>                   
                     <div class="field-inputs other-gender" id="input-group">  
                         <input type="text" name="other-gender">
                         <label>Others (Please specify)</label>
@@ -144,25 +168,25 @@
                 </div>
                 <div class="fifth-row row">
                     <div class="field-inputs medium-inputs"> 
-                        <select name="region" required id="region">
+                        <select name="region" id="region" value="<?=$row['region']?>" >
                             <option value="" disabled selected>--Select Region--</option>
                         </select>
                         <label>Region</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 
-                        <select name="city/province" required id="province">
+                        <select name="city/province" id="province" value="<?=$row['city_province']?>" >
                             <option value="" disabled selected>--Select Province/City--</option>                
                         </select>
                         <label>Province/City</label>
                     </div>                    
                     <div class="field-inputs medium-inputs"> 
-                        <select name="city/municiaplity" required id="municipality">
+                        <select name="city/municipality" id="municipality" value="<?=$row['city_municipality']?>" >
                             <option value="" disabled selected>--Select Municipality/City--</option>                            
                         </select>
                         <label>Municipality/City</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 
-                        <select name="barangay" id="barangay" required>
+                        <select name="barangay" id="barangay" value="<?=$row['barangay']?>">
                             <option value="" disabled selected>--Select Barangay--</option>                            
                         </select>
                         <label>Barangay</label>
