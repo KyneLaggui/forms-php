@@ -1,9 +1,11 @@
 <?php 
+    session_start();
     function emailExists($conn, $email) {
+         
         $sql = "SELECT * FROM users WHERE email = ?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: ../signup.php?error=stmtfailed");
+            header("location: ../signup.php");
             exit();
         }
 
@@ -36,12 +38,14 @@
         $emailExists = emailExists($conn, $email);
 
         if (emptyInputLogin($email, $pwd) == true) {
-            header('location: ../index.php?error=emptyinput');
+            $_SESSION['error'] = 'empty input';
+            header('location: ../index.php');
             exit();
         }
     
         if ($emailExists === false) {
-            header('location: ../index.php?error=wronglogin');
+            $_SESSION['error'] = 'wrong login';
+            header('location: ../index.php');
             exit();
         }
 
@@ -49,20 +53,22 @@
         $checkPwd = password_verify($pwd, $pwdHashed);
 
         if ($checkPwd === false) {
-            header('location: ../index.php?error=wronglogin');
+            $_SESSION['error'] = 'wrong login';
+            header('location: ../index.php');
             exit();
         }
 
         else if ($checkPwd === true) {
-            session_start();
             $_SESSION["email"] = $emailExists['email'];
             header('location: ../dashboard.php');
+            unset($_SESSION['error']);
             exit();
         }
     }
     // End of loginUser function
 
     if ($emailExists === false) {
+        $_SESSION["error"] = 'wrong login';
         header('location: ../login.php?error=wronglogin');
         exit();
     }

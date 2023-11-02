@@ -29,8 +29,7 @@
 
         $sql = "UPDATE users
                 SET username = ?, user_password = ? , first_name = ?, middle_name = ?,
-                last_name = ?, birthdate = ?, age = ?, email = ?, contact_number = ?, tel_number = ?, gender = ?,
-                region = ?, city_province = ?, city_municipality = ?, barangay = ?
+                last_name = ?, birthdate = ?, age = ?, email = ?, contact_number = ?, tel_number = ?, gender = ?
                 WHERE email = ?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -41,11 +40,27 @@
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
         $formattedCelnumber = preg_replace('/[^0-9]/', '', $contactNum);
 
-        mysqli_stmt_bind_param($stmt, "ssssssisssssssss", $username, $hashedPwd, $fname, $mname, 
-            $lname, $birthdate, $age, $email, $formattedCelnumber, $telNum, $gender, $region, $cityProvince,
-            $cityMunicipality, $barangay, $email) ;
+        mysqli_stmt_bind_param($stmt, "ssssssisssss", $username, $hashedPwd, $fname, $mname, 
+            $lname, $birthdate, $age, $email, $formattedCelnumber, $telNum, $gender, $email) ;
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        
+
+        // For address query
+        $sqlAddress = "UPDATE address
+                SET region = ?, province_or_city = ? , municipality = ?, barangay = ?
+                WHERE email = ?;";
+        $stmtAddress = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmtAddress, $sqlAddress)) {
+            header("location: ../edit-details.php?error=stmtfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmtAddress, "sssss", $region, $cityProvince, $cityMunicipality, $barangay, $email) ;
+        mysqli_stmt_execute($stmtAddress);
+        mysqli_stmt_close($stmtAddress);
+
+
         header("location: ../dashboard.php?error=none");
         exit();
     }               

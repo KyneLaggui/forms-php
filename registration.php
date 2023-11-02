@@ -158,7 +158,7 @@
                     </div>                    
                     <div class="field-inputs medium-inputs"> 
                         <select name="city/municipality" required id="municipality">
-                            <option value="" disabled selected>--Select Municipality/City--</option>                            
+                            <option value="" disabled selected>--Select Municipality--</option>                            
                         </select>
                         <label>Municipality/City</label>
                     </div>

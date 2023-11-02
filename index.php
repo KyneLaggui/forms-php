@@ -20,8 +20,19 @@
 <body>
     <div class="container">
         <form action="./includes/login.inc.php" method="post" class="login-box">
+
             <div class="all-inputs">
                 <p class="welcome">Welcome to&nbsp;<span id="space">Space</span><span id="T">T</span></p>
+                <?php 
+                    if (isset($_SESSION['error'])) {
+                        if ($_SESSION['error'] == 'empty input') {
+                            echo "<p><i class='fa-solid fa-circle-exclamation'></i>&nbsp;Fill in all fields.</p>";
+                        }
+                        else if ($_SESSION['error'] == 'wrong login') {
+                            echo "<p><i class='fa-solid fa-circle-exclamation'></i>&nbsp;Wrong login credentials.</p>";
+                        }
+                    }
+                ?>
                 <div class="input-boxes">
                     <div class="field-inputs" id="input-group">  
                         <input type="text" name="email" required maxlength = "30" >
@@ -29,23 +40,13 @@
                     </div>
                     <div class="field-inputs password-field" id="input-group">  
                         <input type="text" name="password" required maxlength = "30" >
+                        <i class="fas fa-eye-slash toggle-password active"></i>
+                        <i class="fas fa-eye toggle-password"></i>
                         <label>Password</label>
                     </div>
                 </div>
-
-                <button type="submit" id="login-btn">Login</button>
-                <?php 
-                    if (isset($_GET['error'])) {
-                        if ($_GET['error'] == 'emptyinput') {
-                            echo "<p><i class='fa-solid fa-circle-exclamation'></i>&nbsp;Fill in all fields.</p>";
-                        }
-                        else if ($_GET['error'] == 'wronglogin') {
-                            echo "<p><i class='fa-solid fa-circle-exclamation'></i>&nbsp;Wrong login credentials.</p>";
-                        }
-                    }
-                ?>
                 <button type="submit" id="login-btn">
-                    <a class="login-button-main" href="#">
+                    <div class="login-button-main" href="#">
                         <span class="btn-title">Launch</span>
                         <span class="icon-arrow">
                             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -56,7 +57,7 @@
                                 </g>
                             </svg> 
                         </span>
-                    </a>
+                </div>
                 </button>
                 <p class="no-account">Don't have an account?&nbsp;<a id="sign-up" href="registration.php">Sign Up</a></p>
             </div>
