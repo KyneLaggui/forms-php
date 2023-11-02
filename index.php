@@ -33,7 +33,7 @@
                     </div>
                 </div>
 
-                <button type="submit" id="login-btn">Login</button>
+                <button type="submit" id="login-btn"></button>
                 <?php 
                     if (isset($_GET['error'])) {
                         if ($_GET['error'] == 'emptyinput') {
