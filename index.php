@@ -64,6 +64,11 @@
             </div>
         </form>
     </div>
+    <?php
+        if (isset($_SESSION['error'])) {
+            unset($_SESSION['error']);
+        } 
+    ?>
     <script src="https://kit.fontawesome.com/ee74f8cc5e.js" crossorigin="anonymous"></script>
     <script src="./js/login.js"></script>
 </body>
