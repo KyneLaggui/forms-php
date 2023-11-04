@@ -259,6 +259,10 @@ input[type='date'], select {
     max-width: 250px;
 }
 
+.password-change {
+    display: none;
+}
+
 i.fa-solid.fa-circle-exclamation,
 i.fa-solid.fa-circle-check {
     margin-right: 10px;
