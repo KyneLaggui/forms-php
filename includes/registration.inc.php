@@ -3,6 +3,7 @@
     if (!empty($_POST)) {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $cpassword = $_POST['cpassword'];
         $fname = $_POST['fname'];
         $mname = $_POST['mname'];
         $lname = $_POST['lname'];
@@ -17,6 +18,56 @@
         $cityMunicipality = $_POST['city/municipality'];
         $barangay = $_POST['barangay'];
         
+        // Backside validation 
+        if (empty($username) || empty($password) || empty($fname) || empty($lname) || empty($birthdate) 
+            || empty($age) || empty($email) || empty($contactNum) || empty($gender) || empty($region)
+            || empty($cityProvince) || empty($cityMunicipality) || empty($barangay)) {
+                header("location: ../signup.php?error=emptyRequiredInputs");
+                exit();
+        }
+
+        if (strlen($password) < 8) {
+            header("location: ../signup.php?error=passwordTooShort");
+            exit();
+        }
+
+        if (!preg_match('/[A-Z]/', $password)) {
+            header("location: ../signup.php?error=passwordNoUppercase");
+            exit();
+        }
+
+        if (!preg_match('/[`!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?~]/', $password)) {
+            header("location: ../signup.php?error=passwordNoSpecialCharacter");
+            exit();
+        }
+
+        if (!preg_match('/\d/', $password)) {
+            header("location: ../signup.php?error=passwordNoNumbers");
+            exit();
+        }
+
+        if ($password !== $cpassword) {
+            header("location: ../signup.php?error=passwordDoesNotMatch");
+            exit();
+        }
+
+        if (strlen(preg_replace('/[^\d]/g', '', $contactNum)) === 12) {
+            header("location: ../signup.php?error=incorrectContactNumberFormat");
+            exit();
+        }
+
+        if (!preg_match('/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/', $email)) {
+            header("location: ../signup.php?error=emailWrongFormat");
+            exit();
+        }
+
+        if ($age < 13) {
+            header("location: ../signup.php?error=ageTooYoung");
+            exit();
+        }
+
+        // End of backside validation
+
         $serverName = 'localhost:3306';
         $dBUsername = 'root';
         $dBPassword = '';
