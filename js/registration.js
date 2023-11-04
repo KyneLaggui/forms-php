@@ -16,6 +16,7 @@ const invalidateInput = (checkElementId, exElementId) => {
 // Other input display
 const otherGender = document.querySelector(".other-gender");
 const gender = document.querySelector("#gender");
+
 gender.addEventListener("change", () => {
 	if (gender.value === 'others') {
 		otherGender.style.display = 'block';
@@ -23,7 +24,12 @@ gender.addEventListener("change", () => {
 		otherGender.style.display = 'none';
 	}
 })
-
+// This is for detecting the default selected value in the gender dropdown on edit details
+if (gender.value === 'others') {
+	otherGender.style.display = 'block';
+} else {
+	otherGender.style.display = 'none';
+}
 
 // Client side validations
 const registrationForm = document.querySelector("#registration-form");
@@ -35,51 +41,81 @@ const contactNumber = document.querySelector("#phone-input");
 const email = document.querySelector("#email");
 const age = document.querySelector("#age");
 
+// Detecting whether the it is on registration page or edit details page
+let fileName = location.href.split("/").slice(-1); 
+
+// For edit details page
+let passwordValidations = document.querySelectorAll('.password-change');
+
 const validateAllInput = (e = null) => {
 	// Input values
 	const passwordValue = password.value;
 	const cpasswordValue = confirmPassword.value;
-	let hasError = false;
 
+	let hasError = false;
+	let changePassword = false;
+	let onEditPage = fileName[0] === 'edit-details.php';
+	
+	if (onEditPage) {
+		if (passwordValue !== "" || cpasswordValue !== "") {
+			changePassword = true;
+		}
+	}
+
+	
+	passwordValidations.forEach((elem) => {
+		if (changePassword) {
+			elem.style.display = 'flex';
+		} else {
+			elem.style.display = 'none';
+		}
+	})
+	
+
+	// Detect if the event is submit hence prevent submission
 	if (e !== null) {
 		e.preventDefault();
 	}
 	
-	if (passwordValue.length < 8) {
-		invalidateInput('length-check', 'length-ex');
-		hasError = true;
-	} else {
-		validateInput('length-check', 'length-ex');
+	if (!onEditPage || (onEditPage && changePassword)) {
+		if ((passwordValue.length < 8 && !onEditPage) || (passwordValue.length < 8 && (onEditPage && changePassword))) {
+			invalidateInput('length-check', 'length-ex');
+			hasError = true;
+		} else {
+			validateInput('length-check', 'length-ex');
+		}
+	
+		if ((/[A-Z]/.test(passwordValue) && !onEditPage) || (/[A-Z]/.test(passwordValue) && (onEditPage && changePassword))) {
+			validateInput('uppercase-check', 'uppercase-ex');
+		} else {
+			invalidateInput('uppercase-check', 'uppercase-ex');
+			hasError = true;
+		}
+	
+		const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+		if ((specialChars.test(passwordValue) && !onEditPage) || (specialChars.test(passwordValue) && (onEditPage && changePassword))) {
+			validateInput('special-check', 'special-ex');
+		} else {
+			invalidateInput('special-check', 'special-ex')
+			hasError = true;
+		}
+	
+		if ((/\d/.test(passwordValue) && !onEditPage) || (/\d/.test(passwordValue) && (onEditPage && changePassword))) {
+			validateInput('number-check', 'number-ex');
+		} else {
+			invalidateInput('number-check', 'number-ex')
+			hasError = true;
+		}
+	
+		if ((passwordValue === cpasswordValue && passwordValue !== "" && cpasswordValue !== "" && !onEditPage) 
+			|| (passwordValue === cpasswordValue && passwordValue !== "" && cpasswordValue !== "" && (onEditPage && changePassword))) {
+			validateInput('match-check', 'match-ex');
+		} else {
+			invalidateInput('match-check', 'match-ex');
+			hasError = true;
+		}
 	}
-
-	if (/[A-Z]/.test(passwordValue)) {
-		validateInput('uppercase-check', 'uppercase-ex');
-	} else {
-		invalidateInput('uppercase-check', 'uppercase-ex');
-		hasError = true;
-	}
-
-	const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-	if (specialChars.test(passwordValue)) {
-		validateInput('special-check', 'special-ex');
-	} else {
-		invalidateInput('special-check', 'special-ex')
-		hasError = true;
-	}
-
-	if (/\d/.test(passwordValue)) {
-		validateInput('number-check', 'number-ex');
-	} else {
-		invalidateInput('number-check', 'number-ex')
-		hasError = true;
-	}
-
-	if (passwordValue === cpasswordValue && passwordValue !== "" && cpasswordValue !== "") {
-		validateInput('match-check', 'match-ex');
-	} else {
-		invalidateInput('match-check', 'match-ex');
-		hasError = true;
-	}
+	
 
 	if (contactNumber.value.replace(/[^\d]/g, '').length === 12) {
 		validateInput('contact-check', 'contact-ex');
@@ -102,7 +138,7 @@ const validateAllInput = (e = null) => {
 		hasError = true;
 	}
 	
-	if (!hasError && e.type === 'submit') {
+	if (!hasError && e && e.type === 'submit') {
 		registrationForm.submit();
 	}
 }
@@ -187,9 +223,6 @@ const regionSelection = document.querySelector("#region");
 const provinceSelection = document.querySelector("#province");
 const municipalitySelection = document.querySelector("#municipality");
 const barangaySelection = document.querySelector("#barangay");
-
-// Detecting whether the it is on registration page or edit details page
-let fileName = location.href.split("/").slice(-1); 
 
 async function findBarangay(municipalityCode) {
     let response;

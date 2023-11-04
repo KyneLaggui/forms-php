@@ -74,11 +74,11 @@
                             <label>Username</label>
                         </div>
                         <div class="field-inputs password-field" id="input-group">  
-                            <input type="text" name="password" id="password" required>
+                            <input type="text" name="password" id="password">
                             <label>New Password</label>
                         </div>
                         <div class="field-inputs password-field" id="input-group" >  
-                            <input type="text" name="cpassword" id ="cpassword" required>
+                            <input type="text" name="cpassword" id ="cpassword">
                             <label>Confirm Password</label>
                         </div>
                     </div>
@@ -101,19 +101,19 @@
                                 }
                             }
                         ?>
-                        <div class="input-error">
+                        <div class="input-error password-change">
                             <p><i class="fa-solid fa-circle-exclamation" id="uppercase-ex"></i><i class="fa-solid fa-circle-check" style="color: #1fd195;" id="uppercase-check"></i>Password has at least one uppercase character</p>
                         </div>
-                        <div class="input-error">
+                        <div class="input-error password-change">
                             <p><i class="fa-solid fa-circle-exclamation" id="special-ex"></i><i class="fa-solid fa-circle-check" style="color: #1fd195;" id="special-check"></i>Password has at least one special character</p>
                         </div>
-                        <div class="input-error">
+                        <div class="input-error password-change">
                             <p><i class="fa-solid fa-circle-exclamation" id="number-ex"></i><i class="fa-solid fa-circle-check" style="color: #1fd195;" id="number-check"></i>Password has at least one number</p>
                         </div>
-                        <div class="input-error">
+                        <div class="input-error password-change">
                             <p><i class="fa-solid fa-circle-exclamation" id="length-ex"></i><i class="fa-solid fa-circle-check" style="color: #1fd195;" id="length-check"></i>Password has at least 8 characters</p>
                         </div>                
-                        <div class="input-error">
+                        <div class="input-error password-change">
                             <p><i class="fa-solid fa-circle-exclamation" id="match-ex"></i><i class="fa-solid fa-circle-check" style="color: #1fd195;" id="match-check"></i>Password matches</p>
                         </div>                
                         <div class="input-error">
@@ -170,14 +170,16 @@
                             <option value="" disabled selected>--Select Gender--</option>
                             <option value="male" <?php if ($row['gender'] == 'male') echo "selected";?> >Male</option>
                             <option value="female" <?php if ($row['gender'] == 'female') echo "selected";?>>Female</option>
-                            <option value="others" <?php if (!$row['gender'] == 'male' && !$row['gender'] == 'female' &&
-                             !$row['gender'] == 'N/A') echo "selected";?>>Others</option>                            
+                            <option value="others" <?php if (($row['gender'] !== 'male') && $row['gender'] !== 'female' &&
+                             $row['gender'] !== 'N/A') echo "selected";?>>Others</option>                            
                             <option value="N/A" <?php if ($row['gender'] == 'N/A') echo "selected";?>>Prefer not to say</option>
                         </select>
                         <label>Gender</label>
                     </div>                   
-                    <div class="field-inputs other-gender" id="input-group">  
-                        <input type="text" name="other-gender">
+                    <div class="field-inputs other-gender" id="input-group" >  
+                        <input type="text" name="other-gender" value="<?php if (($row['gender'] !== 'male') 
+                        && $row['gender'] !== 'female' && $row['gender'] !== 'N/A') echo $row[
+                            'gender'];?>"/>
                         <label>Others (Please specify)</label>
                     </div>
                 </div>
