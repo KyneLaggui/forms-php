@@ -96,8 +96,8 @@
                         <label>First Name</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="mname" required >
-                        <label>Middle Name</label>
+                        <input type="text" name="mname" required>
+                        <label for="mname">Middle Name</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
                         <input type="text" name="lname" required>
@@ -125,7 +125,7 @@
                         <label>Contact Number</label>
                     </div>
                     <div class="field-inputs" id="input-group">  
-                        <input type="text" name="tel-num" required id="tel-input" maxlength="15">
+                        <input type="text" name="tel-num" id="tel-input" maxlength="15">
                         <label>Telephone Number</label>
                     </div>
                     <div class="field-inputs medium-inputs"> 

@@ -39,7 +39,7 @@
                         <label>Email</label>
                     </div>
                     <div class="field-inputs password-field" id="input-group">  
-                        <input type="text" name="password" required maxlength = "30" >
+                        <input type="password" name="password" required maxlength = "30" >
                         <i class="fas fa-eye-slash toggle-password active"></i>
                         <i class="fas fa-eye toggle-password"></i>
                         <label>Password</label>
